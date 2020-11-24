@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/exit")
+@WebServlet("/faces/exit")
 public class ExitServlet extends HttpServlet {
     @EJB
     private UserManager ejb;

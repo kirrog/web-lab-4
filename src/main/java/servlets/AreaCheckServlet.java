@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@WebServlet("/checkShot")
+@WebServlet("/faces/checkShot")
 public class AreaCheckServlet extends HttpServlet {
     @EJB
     private UserManager ejb;
@@ -54,7 +54,7 @@ public class AreaCheckServlet extends HttpServlet {
         response.setIntHeader("rows", shots.size());
 
         if(shotsSize > 0){
-            for (int i = shots.size() - 1; i > 0; i--) {
+            for (int i = shots.size() - 1; i >= 0; i--) {
                 response.getWriter().println(formSCV(shots.get(i)));
             }
         }else {
