@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+
+
+    <head>
+        <title>Lab 3</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="../styles/main.css"/>
+    </head>
+    <body>
+        <div id="header">
+            <img src="../resourcesPicture/logo.jpg" width="10px" height="10px" alt="logo"/><br/>
+            This labwork created by: Negrash Andrey and Rogachev Kirill. <br/>Variant 2698<br/>
+            <div id="time"/>
+            <button onclick="location.href = '../index.xhtml'" id="toIndex">Go back</button>
+        </div>
+        <div id="content">
+            <div id="leftSide">
+                <form action="">
+                    <div id="picture">
+                        
+                    </div>
+
+                    <div id="xText">
+                        X[-5;5]:
+                        <input type="text" id="text_input_X" value="0"/>
+                    </div>
+
+                    <div id="yButtons">
+                        Y[-5;5]:
+                        <input type="text" id="text_input_Y" value="0"/>
+                    </div>
+
+                    <div id="rButtons">
+                        R:
+                        <input type="button" id="rCom1" onclick="setR(1)" value="1" />
+                        <input type="button" id="rCom15" onclick="setR(1.5)" value="1.5"/>
+                        <input type="button" id="rCom2" onclick="setR(2)"  value="2"/>
+                        <input type="button" id="rCom25" onclick="setR(2.5)"  value="2.5"/>
+                        <input type="button" id="rCom3" onclick="setR(3)"  value="3"/>
+                    </div>
+
+                    <div id="sender">
+                        <input type="submit" value="Send" />
+                    </div>
+
+                </form>
+            </div>
+            <div id="rightSide">
+                <div id="table">
+
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../scripts/main.js"/>
+    </body>
+
+
+
+</html>
