@@ -27,11 +27,11 @@ public class UserManager {
 
     public int checkUser(String login, String password) throws Exception {
         //password is a HASH of real str of password
-        Stream<User> logined = users.stream().filter(user -> (user.getLogin() == login));
+        Stream<User> logined = users.stream().filter(user -> (user.getLogin().equals(login)));
         if (logined.count() == 0) {
             return 1;
         }
-        long matches = logined.filter(user -> user.getPassword() == password).count();
+        long matches = users.stream().filter(user -> (user.getLogin().equals(login))).filter(user -> user.getPassword().equals(password)).count();
         if (matches == 1) {
             return 0;
         } else if (matches == 0) {
@@ -60,27 +60,27 @@ public class UserManager {
     }
 
     private User getUser(String login, String password) throws Exception {
-        Stream<User> logined = users.stream().filter(user -> (user.getLogin() == login && user.getPassword() == password));
+        Stream<User> logined = users.stream().filter(user -> (user.getLogin().equals(login) && user.getPassword().equals(password)));
         if (logined.count() > 0) {
-            return logined.findFirst().get();
+            return users.stream().filter(user -> (user.getLogin().equals(login) && user.getPassword().equals(password))).findFirst().get();
         } else {
             throw new Exception("Didn't find that");
         }
     }
 
-    private String generateHash(String login, String password) throws Exception {
-        Stream<User> userStream = users.stream().filter(userr -> ((userr.getLogin() == login) && (userr.getPassword() == password)));
-        if (userStream.count() > 0) {
-            if (userStream.count() == 1) {
-                User user = userStream.findFirst().get();
-                return String.valueOf(((String.valueOf(user.getId())).hashCode()));
-            } else {
-                throw new Exception("There are identical users");
-            }
-        } else {
-            throw new Exception("Doesn't have this user");
-        }
-    }
+//    private String generateHash(String login, String password) throws Exception {
+//        Stream<User> userStream = users.stream().filter(userr -> ((userr.getLogin() == login) && (userr.getPassword() == password)));
+//        if (userStream.count() > 0) {
+//            if (userStream.count() == 1) {
+//                User user = userStream.findFirst().get();
+//                return String.valueOf(((String.valueOf(user.getId())).hashCode()));
+//            } else {
+//                throw new Exception("There are identical users");
+//            }
+//        } else {
+//            throw new Exception("Doesn't have this user");
+//        }
+//    }
 
     public boolean addUser(User user) {
         if(users.contains(user)){

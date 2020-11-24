@@ -1,13 +1,17 @@
 function sendDatas(email, password) {
+    console.log("StartDatas")
     password = sha256(password);
     $.ajax({
         type: "GET",
-        url: "/Lab4/faces/checkUser",
+        url: "/Lab4/checkUser",
         data: {login: "" + email, password: "" + password},
-        complete: function (resp) {
-            let state = resp.getResponseHeader("StatusOfLogIn");
+        success: function (data, status, jqXHR) {
+            console.log(jqXHR.getResponseHeader("StatusOfLogIn"));
+            console.log("Response");
+            let state = jqXHR.getResponseHeader("StatusOfLogIn");
             if (state == 0) {
-                location.href = '/main.html';
+                console.log("CompleteDatas")
+                location.href = '/Lab4/faces/main';
             } else if (state == 1) {
 
             } else if (state == 2) {

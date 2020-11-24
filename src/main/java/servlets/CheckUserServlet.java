@@ -14,33 +14,41 @@ import java.io.IOException;
 
 @WebServlet("/checkUser")
 public class CheckUserServlet extends HttpServlet {
+
+    private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CheckUserServlet.class);
+
     @EJB
     private UserManager ejb;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info("StartChecking");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
             int result = ejb.checkUser(login, password);
-            switch (result){
-                case 0:{ //successful login
+            log.info("Checked " + result);
+            switch (result) {
+                case 0: { //successful login
                     resp.setIntHeader("StatusOfLogIn", 0);
                     UserInf userInf = ejb.loginUser(login, password, req.getSession());
+                    log.info((String.valueOf(userInf.getToken())));
                     Cookie cookie = new Cookie("token", String.valueOf(userInf.getToken()));
                     cookie.setMaxAge(-1);
                     resp.addCookie(cookie);
+                    log.info("Completed");
+                    break;
                 }
-                case 1:{ //wrong login
+                case 1: { //wrong login
                     resp.setIntHeader("StatusOfLogIn", 1);
-
+                    break;
                 }
-                case 2:{ //wrong password
+                case 2: { //wrong password
                     resp.setIntHeader("StatusOfLogIn", 2);
-
+                    break;
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 

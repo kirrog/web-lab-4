@@ -8,6 +8,16 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <servlet>
+        <servlet-name>Hello</servlet-name>
+        <jsp-file>/faces/main.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Hello</servlet-name>
+        <url-pattern>/faces/main</url-pattern>
+    </servlet-mapping>
+
     <filter-mapping>
         <filter-name>SessionFilter</filter-name>
         <url-pattern>/faces/*</url-pattern>
