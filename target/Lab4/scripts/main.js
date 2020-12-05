@@ -1,8 +1,9 @@
-let rGlobal = 1;
+let rGlNum = 1;
 let code = 0;
 let tableOfShots = new Array();
-window.alert = function () {
-};
+
+// window.alert = function () {
+// };
 
 function updateClock() {
     let now = new Date();
@@ -12,15 +13,11 @@ function updateClock() {
         now.getMonth() + 1,
         now.getFullYear()].join('.');
     document.getElementById('time').innerHTML = [time, date].join(' | ');
-    setTimeout(updateClock, 8000);
+    setTimeout(updateClock, 1000);
 }
 
-updateClock();
-document.getElementById("infoR")
-
-
 function setR(newR) {
-    rGlobal = newR;
+    rGlNum = newR;
     printPaint();
 }
 
@@ -49,7 +46,7 @@ const clickAnswer = function (event) {
     xCord = xCord - 150;
     yCord = yCord - 150;
 
-    var r = parseFloat(rGlobal);
+    var r = parseFloat(rGlNum);
 
     var x = (xCord / 120) * r;
     var y = -(yCord / 120) * r;
@@ -67,16 +64,22 @@ function send(x, y, r) {
 
     if (numOflinesInTable != code || numOfCirclesInPaint != code) {
         code = 0;
+    } else {
+        code = numOflinesInTable;
     }
+    console.log("X: " + x + " Y: " + y + " R: " + r);
     $.ajax({
         url: '/Lab4/faces/checkShot',
         headers: {
-            "shotsSize": code
+            "rows": code
         },
-        method: 'get',
+        method: 'POST',
         dataType: 'text',
-        data: {answerX: x, answerY: y, answerR: r},
-        success: function (data) {
+        data: {coord_x: x, coord_y: y, coord_r: r},
+        success: function (data, textStatus, request) {
+            console.log(data);
+            console.log(request.getResponseHeader('rows'));
+
             saveToApp(data);
             writeTable();
             printPaint();
@@ -85,15 +88,16 @@ function send(x, y, r) {
 }
 
 function saveToApp(data) {
-    if (code != 0) {
-        tableOfShots.push(new Array(data.message.slice(0, data.message.length - 1).split(" ")));
+    if (code !== 0 && code !== -1) {
+        tableOfShots.push(data.slice(0, data.length - 1).split(" "));
     } else {
-        let ar = data.message.slice(0, data.message.length - 1).split("\n");
+        let ar = data.slice(0, data.length - 1).split("\n");
         tableOfShots = new Array();
         for (let i = 0; i < ar.length; i++) {
-            tableOfShots.push(new Array(ar[i].split(" ")))
+            tableOfShots.push(ar[i].split(" "));
         }
     }
+    console.log(tableOfShots);
 }
 
 function writeTable() {
@@ -143,32 +147,48 @@ function printPaint() {
 
     for (let i = 0; i < tableOfShots.length; i++) {
         inHTML += "<circle cx=\"" +
-            (150 + 120 * (parseFloat(tableOfShots[i][0]) / rGlobal)) +
+            (150 + 120 * (parseFloat(tableOfShots[i][0]) / rGlNum)) +
             "\" cy=\"" +
-            (150 - 120 * (parseFloat(tableOfShots[i][1]) / rGlobal)) +
+            (150 - 120 * (parseFloat(tableOfShots[i][1]) / rGlNum)) +
             "\" r=\"5\" ";
         if ("true".localeCompare(tableOfShots[i][3])) {
-            inHTML += "fill=\"rgb(0,255,0)\" ";
-        } else {
             inHTML += "fill=\"rgb(255,0,0)\" ";
+        } else {
+            inHTML += "fill=\"rgb(0,255,0)\" ";
         }
         inHTML += "stroke-width=\"1\"\n stroke=\"rgb(0,0,0)\"/>";
     }
     document.getElementById("image-coordinates").innerHTML = inHTML;
 }
 
-function exit(){
+function exit() {
     $.ajax({
         url: '/Lab4/faces/exit',
-        method: 'get',
+        method: 'POST',
         dataType: 'text',
         success: function (data) {
             tableOfShots = new Array();
-            location.href = '../index.html'
+            location.href = '../';
         }
     });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('image-coordinates').addEventListener('click', clickAnswer);
+    updateClock();
+    $.ajax({
+        url: '/Lab4/faces/checkShot',
+        headers: {
+            "rows": -1
+        },
+        method: 'POST',
+        dataType: 'text',
+        success: function (data, textStatus, request) {
+            if (request.getResponseHeader('rows') > 0) {
+                saveToApp(data);
+                writeTable();
+                printPaint();
+            }
+        }
+    });
 });

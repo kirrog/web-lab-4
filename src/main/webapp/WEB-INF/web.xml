@@ -8,18 +8,51 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/error_page.jsp</location>
+    </error-page>
+
     <servlet>
-        <servlet-name>Hello</servlet-name>
+        <servlet-name>main</servlet-name>
         <jsp-file>/faces/main.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Hello</servlet-name>
+        <servlet-name>main</servlet-name>
         <url-pattern>/faces/main</url-pattern>
     </servlet-mapping>
 
-    <filter-mapping>
-        <filter-name>SessionFilter</filter-name>
-        <url-pattern>/faces/*</url-pattern>
-    </filter-mapping>
+    <servlet>
+        <servlet-name>error</servlet-name>
+        <jsp-file>/faces/error_page.jsp</jsp-file>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>error</servlet-name>
+        <url-pattern>/faces/error</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>register</servlet-name>
+        <jsp-file>/registration.jsp</jsp-file>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/registerPage</url-pattern>
+    </servlet-mapping>
+
+<!--    <filter>-->
+<!--        <filter-name>EnterFilter</filter-name>-->
+<!--        <filter-class>filters.LoginedFilter</filter-class>-->
+<!--    </filter>-->
+
+<!--    <filter-mapping>-->
+<!--        <filter-name>EnterFilter</filter-name>-->
+<!--        <url-pattern>/faces/*</url-pattern>-->
+<!--    </filter-mapping>-->
+
 </web-app>

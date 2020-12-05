@@ -12,11 +12,18 @@ import java.io.IOException;
 
 @WebServlet("/faces/exit")
 public class ExitServlet extends HttpServlet {
+
+    private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CheckUserServlet.class);
+
     @EJB
     private UserManager ejb;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info("Get exit");
         ejb.endSession(req.getSession());
+        resp.setIntHeader("result", 0);
+        log.info("Complete exit");
     }
+
 }

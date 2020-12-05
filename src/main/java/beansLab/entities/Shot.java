@@ -3,6 +3,7 @@ package beansLab.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "shots")
@@ -10,11 +11,10 @@ import java.time.LocalDateTime;
 public class Shot implements Serializable {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "id_Sequence")
-    @SequenceGenerator(name = "id_Sequence", sequenceName = "SEQ_SHOT")
+    @SequenceGenerator(name = "id_Sequence", sequenceName = "SEQ_SHOT", allocationSize = 1)
     @Column(name = "shot_id")
-    private int id;
+    private long id;
 
     @Column(name = "x")
     private double x;
@@ -25,11 +25,13 @@ public class Shot implements Serializable {
     @Column(name = "rg")
     private boolean RG;
     @Column(name = "start_time")
-    private LocalDateTime start;
+    private String start;
+
+
     @Column(name = "script_time")
     private long scriptTime;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -39,6 +41,10 @@ public class Shot implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setX(double x) {
@@ -58,8 +64,11 @@ public class Shot implements Serializable {
     }
 
     public void setStart(LocalDateTime start) {
-        this.start = start;
+        String str = start.format(DateTimeFormatter.ofPattern("dd-MM-yyyy;HH:mm:ss"));
+        this.start = str;
     }
+
+    //.format(DateTimeFormatter.ofPattern("dd-MM-yyyy;hh:mm:ss"))
 
     public void setScriptTime(long scriptTime) {
         this.scriptTime = scriptTime;
@@ -82,7 +91,8 @@ public class Shot implements Serializable {
     }
 
     public LocalDateTime getStart() {
-        return start;
+
+        return LocalDateTime.parse(start,DateTimeFormatter.ofPattern("dd-MM-yyyy;HH:mm:ss"));
     }
 
     public long getScriptTime() {
@@ -90,14 +100,6 @@ public class Shot implements Serializable {
     }
 
     public Shot(){}
-    public Shot(double xIn, double yIn, double rIn, boolean rgIn, LocalDateTime startIn, long scriptTimeIn){
-        x = xIn;
-        y = yIn;
-        r = rIn;
-        RG = rgIn;
-        start = startIn;
-        scriptTime = scriptTimeIn;
-    }
 
     @Override
     public String toString() {

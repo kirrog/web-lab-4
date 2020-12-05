@@ -6,20 +6,20 @@ import java.util.List;
 
 @Entity
 @Table (name = "users")
+
 public class User {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
-    @SequenceGenerator(name = "id_Sequence", sequenceName = "SEQ_USER")
+    @SequenceGenerator(name = "id_Sequence", sequenceName = "SEQ_USER", allocationSize = 1)
     @Column(name = "user_id")
-    private int id;
+    private long id;
     @Column(name = "login")
     private String login;
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.EAGER)
     private List<Shot> shots;
 
     public User() {
@@ -40,7 +40,7 @@ public class User {
         shots.remove(shot);
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

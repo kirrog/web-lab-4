@@ -1,8 +1,7 @@
 function sendDatas(email, password) {
-    console.log("StartDatas")
     password = sha256(password);
     $.ajax({
-        type: "GET",
+        method: 'POST',
         url: "/Lab4/checkUser",
         data: {login: "" + email, password: "" + password},
         success: function (data, status, jqXHR) {
@@ -19,7 +18,26 @@ function sendDatas(email, password) {
             }
         }
     });
+}
 
+function sendDataRegistration(email, password) {
+    password = sha256(password);
+    $.ajax({
+        method: 'POST',
+        url: "/Lab4/register",
+        data: {login: "" + email, password: "" + password},
+        success: function (data, status, jqXHR) {
+            console.log(jqXHR.getResponseHeader("StatusOfRegistration"));
+            console.log("Response");
+            let state = jqXHR.getResponseHeader("StatusOfRegistration");
+            if (state == 0) {
+                console.log("CompleteDatas")
+                location.href = '/Lab4/';
+            } else if (state == 1) {
+
+            }
+        }
+    });
 }
 
 var sha256 = function sha256(ascii) {

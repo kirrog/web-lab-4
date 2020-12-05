@@ -17,21 +17,71 @@ import java.util.List;
 
 @WebServlet("/faces/checkShot")
 public class AreaCheckServlet extends HttpServlet {
+
+    private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CheckUserServlet.class);
+
     @EJB
     private UserManager ejb;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int shotsSize = request.getIntHeader("shotsSize");
+        int shotsSize = request.getIntHeader("rows");
+        User user = (User) request.getSession().getAttribute("User");
+        List<Shot> shots = user.getShots();
+
+
+        log.info("Rows code: " + shotsSize);
+        log.info("User: " + user.getLogin());
+        log.info("Rows: " + shots.size());
+
+        if (shotsSize != -1) {
+
+            log.info("Add one shot");
+
+            String xStr = request.getParameter("coord_x");
+            String yStr = request.getParameter("coord_y");
+            String rStr = request.getParameter("coord_r");
+
+            log.info("X: " + xStr);
+            log.info("Y: " + yStr);
+            log.info("R: " + rStr);
+
+            double x = Double.parseDouble(xStr);
+            double y = Double.parseDouble(yStr);
+            double r = Double.parseDouble(rStr);
+
+            Shot shot = addShot(x, y, r, user);
+
+            if (shotsSize != 0) {
+                log.info("Write just one");
+                String string = formSCV(shot);
+                response.getWriter().println(string);
+            }
+
+        }
+
+        response.setIntHeader("rows", shots.size());
+
+        if (shotsSize == 0 || shotsSize == -1) { //how many str-s has the user
+            log.info("Write them all");
+            for (int i = shots.size() - 1; i >= 0; i--) {
+                String string = formSCV(shots.get(i));
+                response.getWriter().println(string);
+            }
+        }
+
+        response.getWriter().flush();
+
+        log.info("Response written");
+
+    }
+
+    private Shot addShot(double x, double y, double r, User user) {
 
         long m = System.nanoTime();
 
         LocalDateTime start = LocalDateTime.now();
-
-        double x = Double.parseDouble(request.getParameter("answerX"));
-        double y = Double.parseDouble(request.getParameter("answerY"));
-        double r = Double.parseDouble(request.getParameter("answerR"));
 
         boolean res = check(x, y, r);
 
@@ -43,27 +93,15 @@ public class AreaCheckServlet extends HttpServlet {
         shot.setR(r);
         shot.setRG(res);
         shot.setStart(start);
-        shot.setX(time);
-
-        User user = (User)request.getSession().getAttribute("User");
+        shot.setScriptTime(time);
 
         ejb.addShotToUser(user, shot);
 
-        List<Shot> shots = user.getShots();
-
-        response.setIntHeader("rows", shots.size());
-
-        if(shotsSize > 0){
-            for (int i = shots.size() - 1; i >= 0; i--) {
-                response.getWriter().println(formSCV(shots.get(i)));
-            }
-        }else {
-            response.getWriter().println(formSCV(shot));
-        }
+        return shot;
     }
 
-    private String formSCV(Shot shot){
-        return cut(shot.getX()) + " " + cut(shot.getY()) + " " + cut(shot.getR()) + " " + shot.isRG() + " " + shot.getStart().format(DateTimeFormatter.ofPattern("dd-MM-yyyy;hh:mm:ss")) + " " + ((shot.getScriptTime()) / 1000);
+    private String formSCV(Shot shot) {
+        return cut(shot.getX()) + " " + cut(shot.getY()) + " " + cut(shot.getR()) + " " + shot.isRG() + " " + shot.getStart().format(DateTimeFormatter.ofPattern("dd-MM-yyyy;HH:mm:ss")) + " " + ((shot.getScriptTime()) / 1000);
     }
 
     private String cut(double num) {
@@ -86,17 +124,20 @@ public class AreaCheckServlet extends HttpServlet {
 
     //Previously checked initialization and intervals
     public boolean check(double x, double y, double r) {
-        if (y >= 0) {
-            if (x > 0) {
-                return ((x + 2 * y) <= r);
-            } else {
-                return ((-x <= r) && (y <= r / 2));
-            }
-        } else {
+        if ((y == 0 && ((x > 0 && x <= r) || ((-x) <= r / 2))) || (x == 0 && (((y > 0) && (y <= r)) || ((-y) <= r / 2)))) {
+            return true;
+        }
+        if (y > 0) {
             if (x > 0) {
                 return false;
             } else {
-                return (x * x + y * y <= r * r);
+                return ((-x * 2) + y <= r);
+            }
+        } else {
+            if (x > 0) {
+                return ((x <= r) && (-y * 2 <= r));
+            } else {
+                return (x * x + y * y <= (r * r) / 4);
             }
         }
     }

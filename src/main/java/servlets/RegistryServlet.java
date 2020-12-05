@@ -16,18 +16,28 @@ import java.io.IOException;
 
 @WebServlet("/register")
 public class RegistryServlet extends HttpServlet {
+
+    private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CheckUserServlet.class);
+
     @EJB
     private UserManager ejb;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info("Got request");
+
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+
+        log.info("Login: " + login + " Password: " + password);
+
         boolean res = ejb.addUser(new User(login, password));
+
+        log.info("Result of registration: " + res);
         if(res){
-            resp.setIntHeader("Registration", 1);
+            resp.setIntHeader("StatusOfRegistration", 1);
         }else {
-            resp.setIntHeader("Registration", 0);
+            resp.setIntHeader("StatusOfRegistration", 0);
         }
     }
 }

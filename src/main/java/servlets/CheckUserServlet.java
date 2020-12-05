@@ -21,10 +21,11 @@ public class CheckUserServlet extends HttpServlet {
     private UserManager ejb;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info("StartChecking");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+        log.info("Login: " + login + " Password: " + password);
         try {
             int result = ejb.checkUser(login, password);
             log.info("Checked " + result);
@@ -41,15 +42,17 @@ public class CheckUserServlet extends HttpServlet {
                 }
                 case 1: { //wrong login
                     resp.setIntHeader("StatusOfLogIn", 1);
+                    log.info("Wrong login");
                     break;
                 }
                 case 2: { //wrong password
                     resp.setIntHeader("StatusOfLogIn", 2);
+                    log.info("Wrong password");
                     break;
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log.warn(e.getMessage());
         }
 
     }

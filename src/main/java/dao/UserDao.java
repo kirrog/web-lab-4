@@ -6,57 +6,73 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import utils.HibernateSessionFactoryUtil;
+
 import java.util.List;
+
 
 public class UserDao {
 
-    public UserDao(){
+    public UserDao() {
         createAllParts();
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            session.clear();
+        }
     }
 
-    public User findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(User.class, id);
+    public User findUserById(int id) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction tx1 = session.beginTransaction();
+            User user = session.get(User.class, id);
+            tx1.commit();
+            return user;
+        }
     }
 
-    public void save(User user) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.save(user);
-        tx1.commit();
-        session.close();
+    public void saveUser(User user) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction tx1 = session.beginTransaction();
+            session.save(user);
+            tx1.commit();
+        }
     }
 
-    public void update(User user) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.update(user);
-        tx1.commit();
-        session.close();
+    public void updateUser(User user) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction tx1 = session.beginTransaction();
+            session.update(user);
+            tx1.commit();
+        }
     }
 
-    public void delete(User user) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.delete(user);
-        tx1.commit();
-        session.close();
+    public void deleteUser(User user) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction tx1 = session.beginTransaction();
+            session.delete(user);
+            tx1.commit();
+        }
     }
 
     public Shot findShotById(int id) {
-//        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-//        Query query =  session.createQuery(("select s from shots s where s.id = " + id));
-//        List list = query.getResultList();
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction tx1 = session.beginTransaction();
+            Shot shot = session.get(Shot.class, id);
+            tx1.commit();
+            return shot;
+        }
+    }
+
+    public List<User> findAllUsers() {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction tx1 = session.beginTransaction();
+            List<User> users = session.createQuery("FROM User", User.class).list();
+            tx1.commit();
+            return users;
+        }
+    }
+
+//    public void close(){
 //        session.close();
-//        Shot shot = (Shot) list.get(0);
-//        return shot;
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Shot.class, id);
-    }
-
-    public List<User> findAll() {
-        List<User> users = HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("FROM User", User.class).list();
-        return users;
-    }
-
+//    }
 
 
     private static String tableUserCheck = "Select * from user_objects where Object_Name = 'USERS'";
@@ -86,72 +102,72 @@ public class UserDao {
             "minvalue 1\n" +
             "start with 1\n" +
             "increment by 1\n" +
-            "cache 2\n";
+            "nocache\n";
 
     private static String seqShot = "create sequence SEQ_SHOT\n" +
             "minvalue 1\n" +
             "start with 1\n" +
             "increment by 1\n" +
-            "cache 2\n";
+            "nocache\n";
 
-    private void createAllParts(){
-        try{
+    private void createAllParts() {
+        try {
             createSeqUser();
             createSeqShot();
             createTableUser();
             createTableShot();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
     }
 
-    private void createSeqUser(){
+    private void createSeqUser() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        Query query =  session.createSQLQuery(seqUserCheck);
+        Query query = session.createSQLQuery(seqUserCheck);
         List list = query.list();
-        if(list.size() == 0){
-            Query queryCreate =  session.createSQLQuery(seqUser);
+        if (list.size() == 0) {
+            Query queryCreate = session.createSQLQuery(seqUser);
             queryCreate.executeUpdate();
         }
         tx1.commit();
         session.close();
     }
 
-    private void createSeqShot(){
+    private void createSeqShot() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        Query query =  session.createSQLQuery(seqShotCheck);
+        Query query = session.createSQLQuery(seqShotCheck);
         List list = query.list();
-        if(list.size() == 0){
-            Query queryCreate =  session.createSQLQuery(seqShot);
+        if (list.size() == 0) {
+            Query queryCreate = session.createSQLQuery(seqShot);
             queryCreate.executeUpdate();
         }
         tx1.commit();
         session.close();
     }
 
-    private void createTableUser(){
+    private void createTableUser() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        Query query =  session.createSQLQuery(tableUserCheck);
+        Query query = session.createSQLQuery(tableUserCheck);
         List list = query.list();
-        if(list.size() == 0){
-            Query queryCreate =  session.createSQLQuery(tableUsers);
+        if (list.size() == 0) {
+            Query queryCreate = session.createSQLQuery(tableUsers);
             queryCreate.executeUpdate();
         }
         tx1.commit();
         session.close();
     }
 
-    private void createTableShot(){
+    private void createTableShot() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        Query query =  session.createSQLQuery(tableShotsCheck);
+        Query query = session.createSQLQuery(tableShotsCheck);
         List list = query.list();
-        if(list.size() == 0){
-            Query queryCreate =  session.createSQLQuery(tableShots);
+        if (list.size() == 0) {
+            Query queryCreate = session.createSQLQuery(tableShots);
             queryCreate.executeUpdate();
         }
         tx1.commit();

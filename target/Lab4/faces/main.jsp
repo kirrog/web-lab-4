@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Lab 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script type="text/javascript" src="../scripts/main.js"></script>
+
     <link rel="stylesheet" href="../styles/main.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,13 +16,14 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
+    <script type="text/javascript" src="../scripts/main.js"></script>
 </head>
 <body>
 <div id="header">
     <img src="../resourcesPicture/logo.jpg" width="10px" height="10px" alt="logo"/><br/>
     This labwork created by: Negrash Andrey and Rogachev Kirill. <br/>Variant 2622<br/>
-    <div id="time"/>
-    <button onclick="location.href = '../index.html'" id="toIndex">Go back</button>
+    <div id="time"></div>
+    <button onclick="exit()" id="toIndex">Go back</button>
 </div>
 <div id="content">
     <div id="leftSide">
@@ -67,23 +69,23 @@
 
             <div id="xText">
                 X:
-                <input type="checkbox" name="coordX" value="-3" v-model="сoord_x" id="x-3" checked>
+                <input type="checkbox" name="coordX" value="-3" v-model="coord_x" id="x-3" checked>
                 <label class="form-check-label" for="x-3">-3</label>
-                <input type="checkbox" name="coordX" value="-2" v-model="сoord_x" id="x-2">
+                <input type="checkbox" name="coordX" value="-2" v-model="coord_x" id="x-2">
                 <label class="form-check-label" for="x-2">-2</label>
-                <input type="checkbox" name="coordX" value="-1" v-model="сoord_x" id="x-1">
+                <input type="checkbox" name="coordX" value="-1" v-model="coord_x" id="x-1">
                 <label class="form-check-label" for="x-1">-1</label>
-                <input type="checkbox" name="coordX" value="0" v-model="сoord_x" id="x0">
+                <input type="checkbox" name="coordX" value="0" v-model="coord_x" id="x0">
                 <label class="form-check-label" for="x0">0</label>
-                <input type="checkbox" name="coordX" value="1" v-model="сoord_x" id="x1">
+                <input type="checkbox" name="coordX" value="1" v-model="coord_x" id="x1">
                 <label class="form-check-label" for="x1">1</label>
-                <input type="checkbox" name="coordX" value="2" v-model="сoord_x" id="x2">
+                <input type="checkbox" name="coordX" value="2" v-model="coord_x" id="x2">
                 <label class="form-check-label" for="x2">2</label>
-                <input type="checkbox" name="coordX" value="3" v-model="сoord_x" id="x3">
+                <input type="checkbox" name="coordX" value="3" v-model="coord_x" id="x3">
                 <label class="form-check-label" for="x3">3</label>
-                <input type="checkbox" name="coordX" value="4" v-model="сoord_x" id="x4">
+                <input type="checkbox" name="coordX" value="4" v-model="coord_x" id="x4">
                 <label class="form-check-label" for="x4">4</label>
-                <input type="checkbox" name="coordX" value="5" v-model="сoord_x" id="x5">
+                <input type="checkbox" name="coordX" value="5" v-model="coord_x" id="x5">
                 <label class="form-check-label" for="x5">5</label>
             </div>
 
@@ -94,28 +96,28 @@
 
             <div id="rButtons">
                 R:
-                <input type="checkbox" name="coordR" value="-3" v-model="сoord_r" id="r-3" checked>
+                <input type="checkbox" class="rCheckbox" name="coordR" value="-3" v-model="coord_r" onclick="setR(-3)" id="r-3" checked>
                 <label class="form-check-label" for="r-3">-3</label>
-                <input type="checkbox" name="coordR" value="-2" v-model="сoord_r" id="r-2">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="-2" v-model="coord_r" onclick="setR(-2)" id="r-2">
                 <label class="form-check-label" for="r-2">-2</label>
-                <input type="checkbox" name="coordR" value="-1" v-model="сoord_r" id="r-1">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="-1" v-model="coord_r" onclick="setR(-1)" id="r-1">
                 <label class="form-check-label" for="r-1">-1</label>
-                <input type="checkbox" name="coordR" value="0" v-model="сoord_r" id="r0">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="0" v-model="coord_r" onclick="setR(0)" id="r0">
                 <label class="form-check-label" for="r0">0</label>
-                <input type="checkbox" name="coordR" value="1" v-model="сoord_r" id="r1">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="1" v-model="coord_r" onclick="setR(1)" id="r1">
                 <label class="form-check-label" for="r1">1</label>
-                <input type="checkbox" name="coordR" value="2" v-model="сoord_r" id="r2">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="2" v-model="coord_r" onclick="setR(2)" id="r2">
                 <label class="form-check-label" for="r2">2</label>
-                <input type="checkbox" name="coordR" value="3" v-model="сoord_r" id="r3">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="3" v-model="coord_r" onclick="setR(3)" id="r3">
                 <label class="form-check-label" for="r3">3</label>
-                <input type="checkbox" name="coordR" value="4" v-model="сoord_r" id="r4">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="4" v-model="coord_r" onclick="setR(4)" id="r4">
                 <label class="form-check-label" for="r4">4</label>
-                <input type="checkbox" name="coordR" value="5" v-model="сoord_r" id="r5">
+                <input type="checkbox" class="rCheckbox" name="coordR" value="5" v-model="coord_r" onclick="setR(5)" id="r5">
                 <label class="form-check-label" for="r5">5</label>
             </div>
 
             <div id="sender">
-                <input type="submit" value="Send" v-on:click="sdc" formaction="/Lab4/faces/checkShot"/>
+                <input type="submit" value="Send" v-on:click="sdc"/>
             </div>
 
         </form>
@@ -153,7 +155,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../scripts/main.js"/>
 <style>
     @media (min-width: 1245px) {
         #header{
