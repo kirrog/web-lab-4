@@ -25,36 +25,43 @@ public class LoginedFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
+        log.info("Filter starts");
+
         ArrayList<Cookie> arrayList = new ArrayList<Cookie>(Arrays.asList(((HttpServletRequest) servletRequest).getCookies()));
         Cookie cookie = null;
         try {
             Optional<Cookie> cookieOptional = arrayList.stream().filter(cookie1 -> "token".equals(cookie1.getName())).findFirst();
 
             if(cookieOptional == null || cookieOptional.get() == null){
+                log.info("Doesn't have cookie");
                 cookie = null;
                 String path = "/Lab4/";
                 RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher(path);
                 requestDispatcher.forward(servletRequest, servletResponse);
             }else {
                 cookie = cookieOptional.get();
+                log.info("Get cookie: " + cookie.getValue());
             }
         }catch (Exception e){
             e.printStackTrace();
         }
 
         if(cookie != null){
+            log.info("Cookie exists");
             if (ejb.hasSession(((HttpServletRequest)servletRequest).getSession(), cookie)){
                 log.info("Filtered and goes");
                 filterChain.doFilter(servletRequest, servletResponse);
+            }else {
+                log.info("Goes to index");
+                String path = "/";
+                RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher(path);
+                requestDispatcher.forward(servletRequest, servletResponse);
             }
+        }else {
+            log.info("Goes to index");
+            String path = "/";
+            RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher(path);
+            requestDispatcher.forward(servletRequest, servletResponse);
         }
-
-        String path = "/Lab4/";
-        RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher(path);
-        requestDispatcher.forward(servletRequest, servletResponse);
-
     }
-
-
-
 }
