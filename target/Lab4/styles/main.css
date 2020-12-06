@@ -144,6 +144,65 @@ body {
     height: auto;
 }
 
+/*Классы ячеек колонок таблицы результатов*/
+.x-class {
+    width: 5%;
+}
+
+.y-class {
+    width: 5%;
+}
+
+.r-class {
+    width: 5%;
+}
+
+.som-class {
+    width: 8%;
+}
+
+.stt-class {
+    width: 40%;
+}
+
+.sct-class {
+    width: 20%;
+}
+
+.page-table-T {
+    width: 400px;
+    /*height: 300px;*/
+    border-spacing: 2px;
+}
+
+/*Скроллбар псевдоэлементом
+Вынесен справа, чтобы не мешал внутри блока своей шириной*/
+.custom_scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom_scrollbar::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    -webkit-border-radius: 1px;
+}
+
+.custom_scrollbar::-webkit-scrollbar-thumb:vertical {
+    background-color: #8e8e8e;
+    -webkit-border-radius: 0;
+    -webkit-width: 5px;
+}
+
+.custom_scrollbar::-webkit-scrollbar-thumb:vertical:hover {
+    background: rgba(0, 245, 255, 0.65);
+}
+
+/*Липкий элемент*/
+.stickyTh {
+    position: sticky;
+    top: 0;
+}
+
+
 #form-content {
     margin: auto;
 }
@@ -152,6 +211,21 @@ body {
     margin: 0 0 10px;
     font-family: "Roboto", sans-serif;
     font-size: 18px;
+}
+
+#table{
+    height: 400px;
+    overflow: auto;
+}
+
+table {
+    font-size: 12px;
+}
+
+th {
+    font-size: 16px;
+    border-style: solid;
+    background: #D8E6F3;
 }
 
 label.error {

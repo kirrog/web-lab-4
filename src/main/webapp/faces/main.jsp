@@ -132,11 +132,11 @@
 
 
     <div id="rightSide">
-        <div id="table">
-            <table class="table table-striped">
-                <thead>
+        <div id="table" class="custom_scrollbar">
+            <table class="table table-striped page-table-T" border="1">
+                <thead class="header" id="headerTable">
                 <tr>
-                    <th id="x-id" class="stickyTh">
+                    <th class="x-class stickyTh">
                         <center>X</center>
                     </th>
                     <th class="y-class stickyTh">
