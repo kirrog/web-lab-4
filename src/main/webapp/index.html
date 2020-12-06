@@ -43,7 +43,8 @@
             <div class="ots"></div>
             <div class="pole">
                 <h6>Email:</h6>
-                <input v-model="login" placeholder="me@example.com" type="email" class="form-control is-valid"
+                <input v-model="login" id="email-text" placeholder="me@example.com" type="email"
+                       class="form-control is-valid"
                        style="min-width:200px" required>
             </div>
             <div class="ots"></div>
@@ -54,19 +55,29 @@
             <div class="ots"></div>
             <div class="pole">
                 <h6>Password:</h6>
-                <input v-model="pass" placeholder="Your pass" class="form-control is-valid" type="password"
+                <input v-model="pass" id="password-text" placeholder="Your pass" class="form-control is-valid"
+                       type="password"
                        style="min-width:200px" required>
             </div>
             <div class="ots"></div>
         </div>
         <br>
 
-        <div class="form-row">
-            <div class="ots"></div>
-            <div class="pole" id="login">
-                <button type="submit" class="btn btn-primary" v-on:click="greet">Log in</button>
+        <div class="form-row d-flex align-items-center">
+            <div class="col-3">
+                <div class="ots"></div>
+                <div class="pole" id="login">
+                    <button type="submit" class="btn btn-primary" v-on:click="greet">Log in</button>
+                </div>
             </div>
-            <div class="ots"></div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <h6>Status: </h6>
+                <h6 id="login-status"></h6>
+                <div class="ots"></div>
+            </div>
+            <div class="col-3"></div>
+
         </div>
         <br>
     </div>
@@ -86,15 +97,13 @@
                 sendDatas(this.login, this.pass)
             }
         }
-
-    })
+    });
     new Vue({
         el: '#app',
         data: {
             message: 'Rogachev&Negrash presents'
         }
     })
-
 </script>
 </body>
 </html>

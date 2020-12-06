@@ -103,7 +103,8 @@ public class Shot implements Serializable {
 
     @Override
     public String toString() {
-        return "X: " + x + " " +
+        return "Shot:" + id + " " +
+                "X: " + x + " " +
         "Y: " + y + " " +
         "R: " + r + " " +
         "GR: " + RG + " " +

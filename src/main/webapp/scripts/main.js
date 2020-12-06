@@ -173,6 +173,25 @@ function exit() {
     });
 }
 
+function clear(){
+    console.log("Start clearing")
+    $.ajax({
+        url: '/Lab4/faces/checkShot',
+        headers: {
+            "rows": -2
+        },
+        method: 'POST',
+        dataType: 'text',
+        success: function (data, textStatus, request) {
+            tableOfShots = new Array();
+            code = 0;
+            writeTable();
+            printPaint();
+            console.log("clearing success")
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('image-coordinates').addEventListener('click', clickAnswer);
     updateClock();

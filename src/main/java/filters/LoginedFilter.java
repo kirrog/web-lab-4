@@ -35,7 +35,7 @@ public class LoginedFilter implements Filter {
             if(cookieOptional == null || cookieOptional.get() == null){
                 log.info("Doesn't have cookie");
                 cookie = null;
-                String path = "/Lab4/";
+                String path = "/error";
                 RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher(path);
                 requestDispatcher.forward(servletRequest, servletResponse);
             }else {
@@ -52,14 +52,14 @@ public class LoginedFilter implements Filter {
                 log.info("Filtered and goes");
                 filterChain.doFilter(servletRequest, servletResponse);
             }else {
-                log.info("Goes to index");
-                String path = "/";
+                log.info("Goes to error");
+                String path = "/error";
                 RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher(path);
                 requestDispatcher.forward(servletRequest, servletResponse);
             }
         }else {
-            log.info("Goes to index");
-            String path = "/";
+            log.info("Goes to error");
+            String path = "/error";
             RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher(path);
             requestDispatcher.forward(servletRequest, servletResponse);
         }

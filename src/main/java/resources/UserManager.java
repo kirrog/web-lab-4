@@ -140,6 +140,13 @@ public class UserManager {
         return b;
     }
 
+    public void clearUser(User user){
+        rLock.lock();
+        usersDao.deleteShots(user);
+        log.info("User: " + user.getLogin() + " cleared NUM of Shots: " + user.getShots().size());
+        rLock.unlock();
+    }
+
 //
 //    @PreDestroy
 //    private void close(){

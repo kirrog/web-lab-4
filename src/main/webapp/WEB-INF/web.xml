@@ -8,10 +8,10 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <error-page>
-        <error-code>404</error-code>
-        <location>/faces/error_page.jsp</location>
-    </error-page>
+<!--    <error-page>-->
+<!--        <error-code>404</error-code>-->
+<!--        <location>/faces/error_page.jsp</location>-->
+<!--    </error-page>-->
 
     <servlet>
         <servlet-name>main</servlet-name>
@@ -25,20 +25,18 @@
 
     <servlet>
         <servlet-name>error</servlet-name>
-        <jsp-file>/faces/error_page.jsp</jsp-file>
+        <jsp-file>/error_page.jsp</jsp-file>
     </servlet>
-
 
     <servlet-mapping>
         <servlet-name>error</servlet-name>
-        <url-pattern>/faces/error</url-pattern>
+        <url-pattern>/error</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>register</servlet-name>
         <jsp-file>/registration.jsp</jsp-file>
     </servlet>
-
 
     <servlet-mapping>
         <servlet-name>register</servlet-name>

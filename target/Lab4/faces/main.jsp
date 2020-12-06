@@ -123,6 +123,14 @@
         </form>
     </div>
 
+
+    <div id="centerSide">
+        <div>
+            <input type="button" value="Clear" v-on:click="clear"/>
+        </div>
+    </div>
+
+
     <div id="rightSide">
         <div id="table">
             <table class="table table-striped">
@@ -178,6 +186,17 @@
             width: 100%;
         }
     }
+    @media (max-width: 791px) {
+        #header{
+            width: 100%;
+        }
+        #leftSide {
+            width: 100%;
+        }
+        #rightSide{
+            width: 100%;
+        }
+    }
 </style>
 <script>
     new Vue({
@@ -192,7 +211,16 @@
                 send(parseFloat(this.coord_x[0]), parseFloat(this.coord_y), parseFloat(this.coord_r[0]));
             }
         }
-    })
+    });
+    new Vue({
+        el: '#centerSide',
+
+        methods: {
+            clear: function (event) {
+                clear();
+            }
+        }
+    });
     var inputs = document.getElementsByName("coordX");
     for (var i = 0; i < inputs.length; i++) inputs[i].onchange = checkboxHandler;
     var inputs2 = document.getElementsByName("coordR");
@@ -209,6 +237,4 @@
     }
 </script>
 </body>
-
-
 </html>

@@ -30,12 +30,15 @@ public class AreaCheckServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("User");
         List<Shot> shots = user.getShots();
 
+        if(shotsSize == -2){
+            ejb.clearUser(user);
+        }
 
         log.info("Rows code: " + shotsSize);
         log.info("User: " + user.getLogin());
         log.info("Rows: " + shots.size());
 
-        if (shotsSize != -1) {
+        if (shotsSize > -1) {
 
             log.info("Add one shot");
 

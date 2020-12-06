@@ -5,12 +5,15 @@ import beansLab.entities.Shot;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import resources.UserManager;
 import utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
 
 public class UserDao {
+
+    private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(UserDao.class);
 
     public UserDao() {
         createAllParts();
@@ -52,6 +55,15 @@ public class UserDao {
         }
     }
 
+    public void deleteShots(User user) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction tx1 = session.beginTransaction();
+            user.getShots().clear();
+            updateUser(user);
+            tx1.commit();
+        }
+    }
+
     public Shot findShotById(int id) {
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
             Transaction tx1 = session.beginTransaction();
@@ -69,6 +81,18 @@ public class UserDao {
             return users;
         }
     }
+
+//    private void writeAllInfAboutUser(User user){
+//        log.info("Login: " + user.getLogin());
+//        log.info("Password: " + user.getPassword());
+//        log.info("Shots: ");
+//        List<Shot> shots = user.getShots();
+//        int size = shots.size();
+//        for (int i = 0; i < size; i++) {
+//            log.info(shots.get(i).toString());
+//        }
+//    }
+
 
 //    public void close(){
 //        session.close();

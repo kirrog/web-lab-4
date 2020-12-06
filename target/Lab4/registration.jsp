@@ -47,7 +47,7 @@
             <div class="ots"></div>
             <div class="pole">
                 <h6>Email:</h6>
-                <input v-model="login" placeholder="me@example.com" type="email" class="form-control is-valid"
+                <input v-model="login" id="email-text" placeholder="me@example.com" type="email" class="form-control is-valid"
                        style="min-width:200px" required>
             </div>
             <div class="ots"></div>
@@ -58,7 +58,7 @@
             <div class="ots"></div>
             <div class="pole">
                 <h6>Password:</h6>
-                <input v-model="pass" placeholder="Your pass" class="form-control is-valid" type="password"
+                <input v-model="pass" id="password-text" placeholder="Your pass" class="form-control is-valid" type="password"
                        style="min-width:200px" required>
             </div>
             <div class="ots"></div>
@@ -68,19 +68,30 @@
         <div class="form-row">
             <div class="ots"></div>
             <div class="pole">
-                <input v-model="passR" placeholder="Repeat your pass" class="form-control is-valid" type="password"
+                <input v-model="passR" id="password-r-text" placeholder="Repeat your pass" class="form-control is-valid" type="password"
                        style="min-width:200px" required>
             </div>
             <div class="ots"></div>
         </div>
         <br>
 
-        <div class="form-row">
-            <div class="ots"></div>
-            <div class="pole" id="login">
-                <button type="submit" class="btn btn-primary" v-on:click="greet">Log in</button>
+        <div class="form-row d-flex align-items-center">
+            <div class="col-3">
+                <div class="ots"></div>
+                <div class="pole" id="login">
+                    <button type="submit" class="btn btn-primary" v-on:click="greet">Log in</button>
+                </div>
+                <div class="ots"></div>
             </div>
-            <div class="ots"></div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <h6>Status: </h6>
+                <h6 id="register-status"></h6>
+                <div class="ots"></div>
+            </div>
+            <div class="col-3"></div>
+
+
         </div>
         <br>
     </div>
@@ -99,9 +110,14 @@
         methods: {
             greet: function (event) {
                 if (this.pass === this.passR) {
+                    document.getElementById("password-text").classList.replace("is-invalid", "is-valid");
+                    document.getElementById("password-r-text").classList.replace("is-invalid", "is-valid");
                     console.log("Right password repeating");
                     sendDataRegistration(this.login, this.pass);
                 } else {
+                    document.getElementById("password-text").classList.replace("is-valid", "is-invalid");
+                    document.getElementById("password-r-text").classList.replace("is-valid", "is-invalid");
+                    document.getElementById("register-status").innerText = "Wrong password repeating";
                     console.log("Wrong password repeating");
                 }
 

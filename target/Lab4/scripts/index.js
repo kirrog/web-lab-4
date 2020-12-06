@@ -10,11 +10,16 @@ function sendDatas(email, password) {
             let state = jqXHR.getResponseHeader("StatusOfLogIn");
             if (state == 0) {
                 console.log("CompleteDatas")
+                document.getElementById("login-status").innerText = "Success";
                 location.href = '/Lab4/faces/main';
             } else if (state == 1) {
+                document.getElementById("email-text").classList.replace("is-valid", "is-invalid");
+                document.getElementById("password-text").classList.replace("is-valid", "is-invalid");
+                document.getElementById("login-status").innerText = "Wrong login";
 
             } else if (state == 2) {
-
+                document.getElementById("password-text").classList.replace("is-valid", "is-invalid");
+                document.getElementById("login-status").innerText = "Wrong password";
             }
         }
     });
@@ -32,9 +37,11 @@ function sendDataRegistration(email, password) {
             let state = jqXHR.getResponseHeader("StatusOfRegistration");
             if (state == 0) {
                 console.log("CompleteDatas")
+                document.getElementById("register-status").innerText = "Success";
                 location.href = '/Lab4/';
             } else if (state == 1) {
-
+                document.getElementById("email-text").classList.replace("is-valid", "is-invalid");
+                document.getElementById("register-status").innerText = "Already exists";
             }
         }
     });
