@@ -3,13 +3,13 @@ body {
 }
 
 #toIndex{
-     width: 33%;
-     height: 69%;
-     color: white;
-     background-color: #3B50C7;
-     border-color: #004F72;
-     border-radius: 5px;
- }
+    width: 33%;
+    height: 69%;
+    color: white;
+    background-color: #3B50C7;
+    border-color: #004F72;
+    border-radius: 5px;
+}
 #toMain{
     width: 33%;
     height: 69%;
@@ -42,10 +42,6 @@ body {
     min-height: 600px;
     overflow: hidden;
 }
-#time {
-    padding: 10px;
-}
-
 #description {
     font: normal 500 12pt Arial;
     width: 60%;

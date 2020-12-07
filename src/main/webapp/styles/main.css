@@ -3,13 +3,13 @@ body {
 }
 
 #toIndex{
-     width: 33%;
-     height: 69%;
-     color: white;
-     background-color: #3B50C7;
-     border-color: #004F72;
-     border-radius: 5px;
- }
+    width: 33%;
+    height: 69%;
+    color: white;
+    background-color: #3B50C7;
+    border-color: #004F72;
+    border-radius: 5px;
+}
 #toMain{
     width: 33%;
     height: 69%;
@@ -42,10 +42,6 @@ body {
     min-height: 600px;
     overflow: hidden;
 }
-#time {
-    padding: 10px;
-}
-
 #description {
     font: normal 500 12pt Arial;
     width: 60%;
@@ -293,4 +289,38 @@ input.error {
         float: none;
         width: 100%;
     }
+    
+    /*@media (min-width: 1245px) {*/
+    /*    #header{*/
+    /*        width: 100%;*/
+    /*    }*/
+    /*    #leftSide {*/
+    /*        width: 49%;*/
+    /*    }*/
+    /*    #rightSide{*/
+    /*        width: 49%;*/
+    /*    }*/
+    /*}*/
+    /*@media (min-width: 791px) and (max-width: 1245px) {*/
+    /*    #header{*/
+    /*        width: 49%;*/
+    /*    }*/
+    /*    #leftSide {*/
+    /*        width: 49%;*/
+    /*    }*/
+    /*    #rightSide{*/
+    /*        width: 100%;*/
+    /*    }*/
+    /*}*/
+    /*@media (max-width: 791px) {*/
+    /*    #header{*/
+    /*        width: 100%;*/
+    /*    }*/
+    /*    #leftSide {*/
+    /*        width: 100%;*/
+    /*    }*/
+    /*    #rightSide{*/
+    /*        width: 100%;*/
+    /*    }*/
+    /*}*/
 }
