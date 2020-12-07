@@ -37,9 +37,9 @@ const clickAnswer = function (event) {
     var clientTop = docEl.clientTop || body.clientTop || 0;
     var clientLeft = docEl.clientLeft || body.clientLeft || 0;
 
-    // (4)
-    var top = box.top + scrollTop - clientTop;
-    var left = box.left + scrollLeft - clientLeft;
+    // (4)  + scrollTop   + scrollLeft
+    var top = box.top - clientTop;
+    var left = box.left - clientLeft;
 
     var xCord = ((event.clientX - left) / box.width) * 300;
     var yCord = ((event.clientY - top) / box.height) * 300;

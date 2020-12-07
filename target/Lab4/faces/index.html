@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg id="image-coordinates" style="height:300px" margin-left="100px" margin-top="100px">
+    <rect width="300" height="300" fill="rgb(255,255,255)" stroke-width="1" stroke="rgb(0,0,0)"></rect>
+
+    <circle cx="150" cy="150" r="60" fill="rgb(0,255,255)" stroke-width="1" stroke="rgb(0,0,0)"></circle>
+    <polyline points="150,150 150,300 300,300 300,0 0,0 0,150 150,150" fill="rgb(255,255,255)"
+              stroke-width="1" stroke="rgb(0,0,0)"></polyline>
+
+    <rect x="150" y="150" width="120" height="60" fill="rgb(0,255,255)" stroke-width="1"
+          stroke="rgb(50,50,50)"></rect>
+
+    <polyline points="150,30 90,150 150,150 150,90" fill="rgb(0,255,255)" stroke-width="1"
+              stroke="rgb(0,0,0)"></polyline>
+
+    <line x1="150" y1="0" x2="150" y2="500" stroke-width="1" stroke="rgb(0,0,0)"></line>
+    <line x1="0" y1="150" x2="300" y2="150" stroke-width="1" stroke="rgb(0,0,0)"></line>
+
+    <line x1="145" y1="30" x2="155" y2="30" stroke-width="1" stroke="rgb(0,0,0)"></line>
+    <line x1="145" y1="90" x2="155" y2="90" stroke-width="1" stroke="rgb(0,0,0)"></line>
+
+    <line x1="30" y1="145" x2="30" y2="155" stroke-width="1" stroke="rgb(0,0,0)"></line>
+    <line x1="90" y1="145" x2="90" y2="155" stroke-width="1" stroke="rgb(0,0,0)"></line>
+
+    <line x1="210" y1="145" x2="210" y2="155" stroke-width="1" stroke="rgb(0,0,0)"></line>
+    <line x1="270" y1="145" x2="270" y2="155" stroke-width="1" stroke="rgb(0,0,0)"></line>
+
+    <line x1="145" y1="210" x2="155" y2="210" stroke-width="1" stroke="rgb(0,0,0)"></line>
+    <line x1="145" y1="270" x2="155" y2="270" stroke-width="1" stroke="rgb(0,0,0)"></line>
+
+    <polyline points="150,0 140,15 150,5 160,15 150,0" fill="rgb(249,249,249)" stroke-width="1"
+              stroke="rgb(0,0,0)"></polyline>
+    <polyline points="300,150 285,140 295,150 285,160 300,150" fill="rgb(249,249,249)" stroke-width="1"
+              stroke="rgb(0,0,0)"></polyline>
+
+</svg>
+
+<script>
+    const clickAnswer = function (event) {
+
+        var box = document.getElementById("image-coordinates").getBoundingClientRect();
+
+        var body = document.body;
+        var docEl = document.documentElement;
+
+        // (2)
+        var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+        var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+        console.log("scrollTop: " + scrollTop);
+        console.log("scrollLeft: " + scrollLeft);
+
+        // (3)
+        var clientTop = docEl.clientTop || body.clientTop || 0;
+        var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+        console.log("clientTop: " + clientTop);
+        console.log("clientLeft: " + clientLeft);
+
+        // (4)
+        var top = box.top - clientTop;
+        var left = box.left - clientLeft;
+
+        console.log("Top: " + top);
+        console.log("Left: " + left);
+
+        console.log("Box Top: " + box.top);
+        console.log("Box Left: " + box.left);
+
+
+        console.log("X Cord event: " + event.clientX);
+        console.log("Y Cord event: " + event.clientY);
+
+        var xCord = ((event.clientX - left) / box.width) * 300;
+        var yCord = ((event.clientY - top) / box.height) * 300;
+
+        console.log("X Cord: " + xCord);
+        console.log("Y Cord: " + yCord);
+    };
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('image-coordinates').addEventListener('click', clickAnswer);
+    });
+</script>
+</body>
+</html>

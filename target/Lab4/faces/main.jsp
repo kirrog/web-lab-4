@@ -19,7 +19,7 @@
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
-<div class="pos-f-t">
+<div id="header" class="pos-f-t">
     <div class="collapse show" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
             <center>
@@ -41,7 +41,7 @@
 
 <div class="form-row">
     <div class="col d-flex justify-content-center">
-        <div>
+        <div id="enterPart">
 
             <div id="picture" height="310px">
                 <svg id="image-coordinates" style="height:300px">
@@ -151,27 +151,27 @@
     </div>
 
 
-    <div class="col d-flex justify-content-center">
+    <div id="table" class="col d-flex justify-content-center custom_scrollbar">
 
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr>
-                <th class="x-class">
+                <th class="x-class stickyTh">
                     X
                 </th>
-                <th class="y-class">
+                <th class="y-class stickyTh">
                     Y
                 </th>
-                <th class="r-class">
+                <th class="r-class stickyTh">
                     R
                 </th>
-                <th class="som-class">
+                <th class="som-class stickyTh">
                     Y/N
                 </th>
-                <th class="stt-class">
+                <th class="stt-class stickyTh">
                     Start time
                 </th>
-                <th class="sct-class">
+                <th class="sct-class stickyTh">
                     Script time
                 </th>
             </tr>
@@ -181,41 +181,7 @@
         </table>
     </div>
 </div>
-<style>
-    @media (min-width: 1245px) {
-        #header{
-            width: 100%;
-        }
-        #leftSide {
-            width: 49%;
-        }
-        #rightSide{
-            width: 49%;
-        }
-    }
-    @media (min-width: 791px) and (max-width: 1245px) {
-        #header{
-            width: 49%;
-        }
-        #leftSide {
-            width: 49%;
-        }
-        #rightSide{
-            width: 100%;
-        }
-    }
-    @media (max-width: 791px) {
-        #header{
-            width: 100%;
-        }
-        #leftSide {
-            width: 100%;
-        }
-        #rightSide{
-            width: 100%;
-        }
-    }
-</style>
+
 <script>
     new Vue({
         el: '#form',
