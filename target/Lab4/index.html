@@ -16,26 +16,28 @@
 
 </head>
 <body>
-<div class="pos-f-t">
+<div id="header" class="pos-f-t">
     <div class="collapse show" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
             <center>
-                <h5 class="text-white h4" id="app">{{ message }}</h5>
+                <h5 class="text-white h4" id="app">Rogachev&Negrash presents</h5>
                 <span class="text-muted">Variant 2622</span>
             </center>
         </div>
     </div>
-    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center"><center>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button></center>
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+        <center>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </center>
     </nav>
 </div>
 
 
-
-
-<div class="form-row">
+<div id="content" class="form-row">
     <div class="col-4"></div>
     <div class="col-4" id="form">
         <div class="alert alert-warning alert-dismissible fade" id="alert" role="alert">
@@ -51,7 +53,7 @@
         <br>
 
 
-        <h6 class="lead" >Email:</h6>
+        <h6 class="lead">Email:</h6>
         <input v-model="login" id="email-text" placeholder="me@example.com" type="email"
                class="form-control is-valid"
                style="min-width:200px" required>
@@ -59,7 +61,7 @@
         <br>
 
 
-        <h6 class="lead" >Password:</h6>
+        <h6 class="lead">Password:</h6>
         <input v-model="pass" id="password-text" placeholder="Your pass" class="form-control is-valid"
                type="password"
                style="min-width:200px" required>
@@ -87,12 +89,6 @@
             }
         }
     });
-    new Vue({
-        el: '#app',
-        data: {
-            message: 'Rogachev&Negrash presents'
-        }
-    })
 </script>
 </body>
 </html>

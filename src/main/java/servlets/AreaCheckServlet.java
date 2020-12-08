@@ -30,7 +30,7 @@ public class AreaCheckServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("User");
         List<Shot> shots = user.getShots();
 
-        if(shotsSize == -2){
+        if (shotsSize == -2) {
             ejb.clearUser(user);
         }
 
@@ -50,9 +50,19 @@ public class AreaCheckServlet extends HttpServlet {
             log.info("Y: " + yStr);
             log.info("R: " + rStr);
 
-            double x = Double.parseDouble(xStr);
-            double y = Double.parseDouble(yStr);
-            double r = Double.parseDouble(rStr);
+            double x = 0;
+            double y = 0;
+            double r = 0;
+
+            try {
+                x = Double.parseDouble(xStr);
+                y = Double.parseDouble(yStr);
+                r = Double.parseDouble(rStr);
+            } catch (Exception e) {
+                log.info(e.getMessage());
+                response.setStatus(403);
+                return;
+            }
 
             Shot shot = addShot(x, y, r, user);
 

@@ -10,22 +10,17 @@
 </head>
 
 <body>
-<div class="card bg-dark" id="back">
-    <img class="card-img" src="resourcesPicture/back-err.png" alt="">
-    <div class="card-img-overlay d-flex justify-content-end align-items-start">
-        <div class="form-row">
-            <div class="card border-0 text-white">
-                <div class="card-body" style="background-color: #000000">
-                    <h1 class="display-4"><center>User didn't login</center></h1>
-                    <p class="lead">You doesn't have access to this page. Please login before go to this page</p>
-                    <a href="/index.html" class="btn btn-lg btn-block btn-dark">Return to login</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+<h1 class="display-1">Error 401</h1>
+<h1>
+    <center>User didn't login</center>
+</h1>
+<p class="lead">
+<center>You doesn't have access to this page. Please login before go to this page</center>
+</p>
+<a href="/index.html" class="btn btn-lg btn-block btn-dark">Return to login</a>
 </body>
+
+</html>
 <style>
     #back {
         background: linear-gradient(271deg, #ffffff, #1b0bf2, #f20d0b);
@@ -38,24 +33,51 @@
     }
 
     @-webkit-keyframes AnimationName {
-        0%{background-position:0% 50%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 50%}
+        0% {
+            background-position: 0% 50%
+        }
+        50% {
+            background-position: 100% 50%
+        }
+        100% {
+            background-position: 0% 50%
+        }
     }
+
     @-moz-keyframes AnimationName {
-        0%{background-position:0% 50%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 50%}
+        0% {
+            background-position: 0% 50%
+        }
+        50% {
+            background-position: 100% 50%
+        }
+        100% {
+            background-position: 0% 50%
+        }
     }
+
     @-o-keyframes AnimationName {
-        0%{background-position:0% 50%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 50%}
+        0% {
+            background-position: 0% 50%
+        }
+        50% {
+            background-position: 100% 50%
+        }
+        100% {
+            background-position: 0% 50%
+        }
     }
+
     @keyframes AnimationName {
-        0%{background-position:0% 50%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 50%}
+        0% {
+            background-position: 0% 50%
+        }
+        50% {
+            background-position: 100% 50%
+        }
+        100% {
+            background-position: 0% 50%
+        }
     }
 </style>
 
