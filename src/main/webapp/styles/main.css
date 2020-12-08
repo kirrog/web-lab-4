@@ -42,7 +42,6 @@ body {
     margin: 0 auto 0;
     text-align: center;
     min-height: 600px;
-    overflow: hidden;
 }
 
 #description {
@@ -60,10 +59,6 @@ body {
     width: 80%;
     margin: 20px auto 0;
     overflow: hidden;
-}
-
-#content {
-    width: 960px;
 }
 
 #leftSide {
@@ -222,6 +217,19 @@ body {
     overflow: auto;
 }
 
+#picture{
+    height: 310px;
+    width: 310px;
+}
+
+#form {
+    width: 310px;
+}
+
+#centerSide{
+    width: 310px;
+}
+
 table {
     font-size: 12px;
 }
@@ -243,64 +251,32 @@ input.error {
     margin-bottom: 5px;
 }
 
-/*@media screen and (max-width: 999px) {*/
-/*    #about {*/
-/*        width: 748px;*/
-/*    }*/
 
-/*    #content {*/
-/*        width: 748px;*/
-/*    }*/
 
-/*    .form {*/
-/*        margin-top: 0;*/
-/*    }*/
-/*}*/
-
-/*@media screen and (max-width: 767px) {*/
-/*    #about {*/
-/*        width: 460px;*/
-/*    }*/
-
-/*    #content {*/
-/*        width: 460px;*/
-/*    }*/
-
-/*    .form {*/
-/*        float: none;*/
-/*        width: 100%;*/
-/*        margin-top: 20px;*/
-/*    }*/
-
-/*    #dataimage {*/
-/*        float: none;*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
-
-/*@media screen and (max-width: 479px) {*/
-/*    #about {*/
-/*        width: 300px;*/
-/*    }*/
-
-/*    #content {*/
-/*        width: 300px;*/
-/*    }*/
-
-/*    .form {*/
-/*        float: none;*/
-/*        width: 100%;*/
-/*        margin-top: 20px;*/
-/*    }*/
-
-/*    #dataimage {*/
-/*        float: none;*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
-
-@media (min-width: 1245px) {
+@media (min-device-width: 1245px) {
     #header {
+        width: 80%;
+    }
+
+    #content{
+        width: 80%;
+    }
+
+    #enterPart {
+        width: 49%;
+    }
+
+    #table {
+        width: 49%;
+    }
+}
+
+@media (min-device-width: 792px) and (max-device-width: 1245px) {
+    #header {
+        width: 100%;
+    }
+
+    #content{
         width: 100%;
     }
 
@@ -313,30 +289,25 @@ input.error {
     }
 }
 
-@media (min-width: 791px) and (max-width: 1245px) {
+@media (min-device-width: 0px) and (max-device-width: 791px) {
     #header {
+        min-width: 0;
         width: 100%;
     }
 
-    #enterPart {
-        width: 49%;
-    }
-
-    #table {
-        width: 49%;
-    }
-}
-
-@media (max-width: 791px) {
-    #header {
-        width: 49%;
+    #content{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #enterPart {
         width: 100%;
+        min-width: 400px;
     }
 
     #table {
         width: 100%;
+        min-width: 400px;
     }
 }

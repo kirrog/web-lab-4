@@ -56,7 +56,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/resourcesPicture" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/faces" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -64,20 +64,20 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\resourcesPicture" />
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\faces" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp" />
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\scripts" />
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\java" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\faces" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="utils" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\faces" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\resourcesPicture" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\scripts" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\java" />
     </key>
   </component>
   <component name="RunManager" selected="JBoss Server.Lab4">
@@ -304,29 +304,29 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="600" y="138" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607233079420" />
-    <state width="1877" height="336" key="GridCell.Tab.0.bottom" timestamp="1607353101251">
+    <state width="1877" height="336" key="GridCell.Tab.0.bottom" timestamp="1607353222440">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607348556235" />
-    <state width="1877" height="336" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353101251" />
+    <state width="1877" height="336" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353222440" />
     <state width="1323" height="9" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
-    <state width="1877" height="336" key="GridCell.Tab.0.center" timestamp="1607353101251">
+    <state width="1877" height="336" key="GridCell.Tab.0.center" timestamp="1607353222439">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607348556234" />
-    <state width="1877" height="336" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353101251" />
+    <state width="1877" height="336" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353222439" />
     <state width="1323" height="9" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
-    <state width="1877" height="336" key="GridCell.Tab.0.left" timestamp="1607353101251">
+    <state width="1877" height="336" key="GridCell.Tab.0.left" timestamp="1607353222439">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607348556234" />
-    <state width="1877" height="336" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353101251" />
+    <state width="1877" height="336" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353222439" />
     <state width="1323" height="9" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
-    <state width="1877" height="336" key="GridCell.Tab.0.right" timestamp="1607353101251">
+    <state width="1877" height="336" key="GridCell.Tab.0.right" timestamp="1607353222439">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607348556235" />
-    <state width="1877" height="336" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353101251" />
+    <state width="1877" height="336" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607353222439" />
     <state width="1323" height="9" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
     <state width="1877" height="722" key="GridCell.Tab.1.bottom" timestamp="1607085395141">
       <screen x="1366" y="0" width="1920" height="1040" />
@@ -373,11 +373,11 @@
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607241594751" />
     <state x="1827" y="162" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607241517595" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1607190077220">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1899" y="269" key="com.intellij.ide.util.TipDialog" timestamp="1607406499664">
+      <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607190077220" />
-    <state x="1899" y="269" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607166944209" />
+    <state x="1899" y="269" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607406499664" />
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1606640414297" />
     <state x="274" y="66" key="new project wizard" timestamp="1607190183124">
       <screen x="0" y="0" width="1366" height="728" />
