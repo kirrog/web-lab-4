@@ -104,7 +104,7 @@ public class UserManager {
 
     public boolean addUser(User user) {
         rLock.lock();
-        if(users.contains(user)){
+        if(users.stream().anyMatch(user1 -> user1.getLogin().equals(user.getLogin()))){
             rLock.unlock();
             return false;
         }else {

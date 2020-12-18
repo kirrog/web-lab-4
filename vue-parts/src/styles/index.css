@@ -1,0 +1,33 @@
+
+@media (min-device-width: 1245px) {
+    #header {
+        width: 80%;
+    }
+
+    #content{
+        width: 80%;
+    }
+}
+
+@media (min-device-width: 792px) and (max-device-width: 1245px) {
+    #header {
+        width: 100%;
+    }
+
+    #content{
+        width: 100%;
+    }
+}
+
+@media (min-device-width: 0px) and (max-device-width: 791px) {
+    #header {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #content{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

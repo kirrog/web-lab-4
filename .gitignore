@@ -1,0 +1,5 @@
+vue-parts/dist
+vue-parts/node_modules
+old/*
+target/*
+src/main/webapp/dist/*
