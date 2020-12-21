@@ -231,7 +231,7 @@
                 btn.setAttribute("disabled", "true");
                 send(parseFloat(this.data().coord_x[0]), parseFloat(this.data().coord_y), parseFloat(this.data().coord_r[0]))
                 btn = document.getElementById("send-btn");
-                btn.setAttribute("enabled", "true");
+                btn.removeAttribute("disabled");
             },
             setR: (number) => {
                 let btns = document.getElementsByClassName("rCheckbox");
@@ -240,7 +240,7 @@
                 }
                 setR(number);
                 for(let btn in btns){
-                    btn.setAttribute("enabled", "true");
+                    btn.removeAttribute("disabled");
                 }
             },
             clearAll: function () {
@@ -248,14 +248,14 @@
                 btn.setAttribute("disabled", "true");
                 clear();
                 btn = document.getElementById("clear-btn");
-                btn.setAttribute("enabled", "true");
+                btn.removeAttribute("disabled");
             },
             exit: ()=>{
                 let btn = document.getElementById("exit-btn");
                 btn.setAttribute("disabled", "true");
                 exit();
                 btn = document.getElementById("exit-btn");
-                btn.setAttribute("enabled", "true");
+                btn.removeAttribute("disabled");
             }
         }
     }

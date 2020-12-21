@@ -5,12 +5,12 @@ function sendDatas(email, password) {
     // eslint-disable-next-line no-undef
     $.ajax({
         method: 'POST',
-        url: "/Lab4/checkUser",
+        url: "/Lab4/rest/checkUser",
         data: {login: "" + email, password: "" + password},
         success: function (data, status, jqXHR) {
-            console.log(jqXHR.getResponseHeader("StatusOfLogIn"));
             console.log("Response");
             let state = jqXHR.getResponseHeader("StatusOfLogIn");
+            console.log(state);
             if (state == 0) {
                 document.getElementById("alert").setAttribute("class","alert alert-success alert-dismissible fade show");
                 console.log("CompleteDatas")
@@ -26,7 +26,12 @@ function sendDatas(email, password) {
                 document.getElementById("password-text").classList.replace("is-valid", "is-invalid");
                 document.getElementById("login-status").innerText = "Wrong password";
                 document.getElementById("alert").setAttribute("class","alert alert-warning alert-dismissible fade show");
+            }else {
+                console.warn("Nothing return");
             }
+        },
+        error: function () {
+            console.error("Login error");
         }
     });
 }
@@ -36,7 +41,7 @@ function sendDataRegistration(email, password) {
     // eslint-disable-next-line no-undef
     $.ajax({
         method: 'POST',
-        url: "/Lab4/register",
+        url: "/Lab4/rest/register",
         data: {login: "" + email, password: "" + password},
         success: function (data, status, jqXHR) {
             console.log(jqXHR.getResponseHeader("StatusOfRegistration"));
@@ -52,6 +57,9 @@ function sendDataRegistration(email, password) {
                 document.getElementById("register-status").innerText = "Already exists";
                 document.getElementById("alert").setAttribute("class","alert alert-warning alert-dismissible fade show");
             }
+        },
+        error: function () {
+            console.error("Register error");
         }
     });
 }

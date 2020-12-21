@@ -20,3 +20,5 @@
         <mapping class="beansLab.entities.Shot" />
     </session-factory>
 </hibernate-configuration>
+
+<!--orcl  orbis-->

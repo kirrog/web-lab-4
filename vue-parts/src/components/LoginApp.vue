@@ -39,14 +39,14 @@
 
                 <h6 class="lead">Email:</h6>
                 <input v-model="login" id="email-text" placeholder="me@example.com" type="email"
-                       class="form-control is-valid"
+                       class="form-control"
                        style="min-width:200px" required>
 
                 <br>
 
 
                 <h6 class="lead">Password:</h6>
-                <input v-model="pass" id="password-text" placeholder="Your pass" class="form-control is-valid"
+                <input v-model="pass" id="password-text" placeholder="Your pass" class="form-control"
                        type="password"
                        style="min-width:200px" required>
                 <br>
@@ -77,7 +77,8 @@
                 btn.setAttribute("disabled", "true");
                 sendDatas(this.login, this.pass);
                 btn = document.getElementById("login-btn");
-                btn.setAttribute("enabled", "true");
+                btn.removeAttribute("disabled");
+
             }
         }
 

@@ -8,24 +8,19 @@
         <welcome-file>./dist/index.html</welcome-file>
     </welcome-file-list>
 
-<!--    <servlet>-->
-<!--        <servlet-name>main</servlet-name>-->
-<!--        <jsp-file>/faces/main.jsp</jsp-file>-->
-<!--    </servlet>-->
+    <filter>
+        <filter-name>EnterFilter</filter-name>
+        <filter-class>filters.LoginedFilter</filter-class>
+    </filter>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>main</servlet-name>-->
-<!--        <url-pattern>/faces/main</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <filter-mapping>
+        <filter-name>EnterFilter</filter-name>
+        <url-pattern>/faces/*</url-pattern>
+    </filter-mapping>
 
-<!--    <filter>-->
-<!--        <filter-name>EnterFilter</filter-name>-->
-<!--        <filter-class>filters.LoginedFilter</filter-class>-->
-<!--    </filter>-->
-
-<!--    <filter-mapping>-->
-<!--        <filter-name>EnterFilter</filter-name>-->
-<!--        <url-pattern>/faces/*</url-pattern>-->
-<!--    </filter-mapping>-->
+    <filter-mapping>
+        <filter-name>EnterFilter</filter-name>
+        <url-pattern>/rest/faces/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

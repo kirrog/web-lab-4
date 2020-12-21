@@ -6,7 +6,7 @@
                     <center>
                         <h5 class="text-white h4" id="app">Rogachev&Negrash presents</h5>
                         <span class="text-muted">Variant 2622</span><br>
-                        <router-link to="/Lab4/login" class="btn btn-dark">Go</router-link>
+                        <router-link to="/Lab4/login" class="btn btn-dark">Go login</router-link>
                     </center>
                 </div>
             </div>
@@ -39,17 +39,17 @@
 
                 <h6 class="lead">Email:</h6>
                 <input v-model="login" id="email-text" placeholder="me@example.com" type="email"
-                       class="form-control is-valid"
+                       class="form-control"
                        style="min-width:200px" required>
 
                 <br>
 
 
                 <h6 class="lead">Password:</h6>
-                <input v-model="pass" id="password-text" placeholder="Your pass" class="form-control is-valid"
+                <input v-model="pass" id="password-text" placeholder="Your pass" class="form-control"
                        type="password"
                        style="min-width:200px" required>
-                <input v-model="passR" id="password-r-text" placeholder="Repeat your pass" class="form-control is-valid"
+                <input v-model="passR" id="password-r-text" placeholder="Repeat your pass" class="form-control"
                        type="password"
                        style="min-width:200px" required>
 
@@ -79,19 +79,31 @@
             greet: function () {
                 let btn = document.getElementById("register-btn");
                 btn.setAttribute("disabled", "true");
-                if (this.pass === this.passR) {
+                if (this.pass === this.passR && this.login !== "") {
+                    console.log("-----");
+                    document.getElementById("email-text").classList.replace("is-invalid", "is-valid");
                     document.getElementById("password-text").classList.replace("is-invalid", "is-valid");
                     document.getElementById("password-r-text").classList.replace("is-invalid", "is-valid");
                     console.log("Right password repeating");
                     sendDataRegistration(this.login, this.pass);
-                } else {
+                    btn.removeAttribute("disabled");
+                } else if(this.pass !== this.passR){
                     document.getElementById("password-text").classList.replace("is-valid", "is-invalid");
                     document.getElementById("password-r-text").classList.replace("is-valid", "is-invalid");
                     document.getElementById("register-status").innerText = "Wrong password repeating";
                     document.getElementById("alert").setAttribute("class", "alert alert-warning alert-dismissible fade show");
                     console.log("Wrong password repeating");
                     let btn = document.getElementById("register-btn");
-                    btn.setAttribute("enabled", "true");
+                    //btn.setAttribute("enabled", "true");
+                    btn.removeAttribute("disabled");
+                }else {
+                    document.getElementById("email-text").classList.replace("is-valid", "is-invalid");
+                    document.getElementById("register-status").innerText = "Login can't be null";
+                    document.getElementById("alert").setAttribute("class", "alert alert-warning alert-dismissible fade show");
+                    console.log("Login can't be null");
+
+                    let btn = document.getElementById("register-btn");
+                    btn.removeAttribute("disabled");
                 }
             }
         }

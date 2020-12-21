@@ -63,36 +63,36 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/dist" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21525097" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\dist" />
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\vue-parts" />
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp" />
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\faces" />
-      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\resourcesPicture" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
-      <recent name="utils" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\js" />
       <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\css" />
       <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp" />
       <recent name="C:\MyProjects\Java\Web\web-lab-4\old" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\faces" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\java" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\dist" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\vue-parts" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp" />
       <recent name="C:\MyProjects\Java\Web\web-lab-4\src\main\webapp\faces" />
     </key>
   </component>
@@ -311,9 +311,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.buildPath" />
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.help" />
         <item itemvalue="npm.serve" />
+        <item itemvalue="npm.build" />
         <item itemvalue="Application.HibernateOracleTestXML" />
       </list>
     </recent_temporary>
@@ -353,15 +353,19 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Project_Structure/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607241688267" />
+    <state x="1583" y="206" key="#Schemas_and_DTDs" timestamp="1608398185158">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1583" y="206" key="#Schemas_and_DTDs/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608398185158" />
     <state x="1583" y="206" key="#Web_Browsers" timestamp="1607085461551">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="1583" y="206" key="#Web_Browsers/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607085461551" />
-    <state x="1445" y="162" width="1092" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607435304236">
+    <state x="1445" y="162" width="1092" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608398200167">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="274" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1606178218939" />
-    <state x="1445" y="162" width="1092" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607435304236" />
+    <state x="1445" y="162" width="1092" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608398200167" />
     <state x="229" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606641525942" />
     <state x="2088" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608320791371">
       <screen x="1366" y="0" width="1920" height="1040" />
@@ -376,6 +380,10 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2002" y="209" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608319265167" />
+    <state x="1583" y="206" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1608398199121">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1583" y="206" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608398199121" />
     <state x="2130" y="512" width="505" height="151" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1607433642125">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
@@ -388,34 +396,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1606178248853" />
-    <state x="2209" y="197" key="FileChooserDialogImpl" timestamp="1607433640377">
+    <state x="2209" y="197" key="FileChooserDialogImpl" timestamp="1608398170937">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="600" y="138" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607233079420" />
-    <state x="2209" y="197" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607433640377" />
-    <state width="1877" height="605" key="GridCell.Tab.0.bottom" timestamp="1608324416359">
+    <state x="2209" y="197" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608398170937" />
+    <state width="1877" height="759" key="GridCell.Tab.0.bottom" timestamp="1608562313786">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1323" height="419" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607501720860" />
-    <state width="1877" height="605" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608324416359" />
+    <state width="1323" height="225" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608467636284" />
+    <state width="1877" height="759" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608562313786" />
     <state width="1323" height="9" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
-    <state width="1877" height="605" key="GridCell.Tab.0.center" timestamp="1608324416359">
+    <state width="1877" height="759" key="GridCell.Tab.0.center" timestamp="1608562313786">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1323" height="419" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607501720860" />
-    <state width="1877" height="605" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608324416359" />
+    <state width="1323" height="225" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608467636284" />
+    <state width="1877" height="759" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608562313786" />
     <state width="1323" height="9" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
-    <state width="1877" height="605" key="GridCell.Tab.0.left" timestamp="1608324416359">
+    <state width="1877" height="759" key="GridCell.Tab.0.left" timestamp="1608562313786">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1323" height="419" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607501720860" />
-    <state width="1877" height="605" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608324416359" />
+    <state width="1323" height="225" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608467636284" />
+    <state width="1877" height="759" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608562313786" />
     <state width="1323" height="9" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
-    <state width="1877" height="605" key="GridCell.Tab.0.right" timestamp="1608324416359">
+    <state width="1877" height="759" key="GridCell.Tab.0.right" timestamp="1608562313786">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1323" height="419" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607501720860" />
-    <state width="1877" height="605" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608324416359" />
+    <state width="1323" height="225" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608467636284" />
+    <state width="1877" height="759" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608562313786" />
     <state width="1323" height="9" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606650927347" />
     <state width="1877" height="722" key="GridCell.Tab.1.bottom" timestamp="1607085395141">
       <screen x="1366" y="0" width="1920" height="1040" />
@@ -458,31 +466,31 @@
     </state>
     <state x="519" y="63" key="NewModule_or_Project.wizard/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607233101517" />
     <state x="2095" y="90" key="NewModule_or_Project.wizard/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607433243778" />
-    <state x="1782" y="112" width="1361" height="851" key="SettingsEditor" timestamp="1607439530105">
+    <state x="1782" y="112" width="1361" height="851" key="SettingsEditor" timestamp="1608562367543">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="326" y="0" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607241594751" />
-    <state x="1782" y="112" width="1361" height="851" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607439530105" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1608317091483">
+    <state x="326" y="0" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608446353585" />
+    <state x="1782" y="112" width="1361" height="851" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608562367543" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1608446306294">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608317091483" />
-    <state x="1899" y="269" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607406499664" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608446306294" />
+    <state x="1899" y="269" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608397563711" />
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1608052588854" />
     <state x="2167" y="431" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1607439529244">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2167" y="431" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607439529244" />
-    <state x="1751" y="94" key="new project wizard" timestamp="1608319320097">
-      <screen x="1366" y="0" width="1920" height="1040" />
+    <state x="274" y="66" key="new project wizard" timestamp="1608454350702">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="66" key="new project wizard/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1607190183124" />
+    <state x="274" y="66" key="new project wizard/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1608454350702" />
     <state x="1751" y="94" key="new project wizard/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608319320097" />
     <state x="274" y="66" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1604993871862" />
-    <state x="1982" y="240" key="run.anything.popup" timestamp="1607247373750">
+    <state x="1982" y="240" key="run.anything.popup" timestamp="1608550846234">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1982" y="240" key="run.anything.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607247373750" />
+    <state x="1982" y="240" key="run.anything.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1608550846234" />
     <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606188099799">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

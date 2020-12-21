@@ -64,33 +64,34 @@ function send(x, y, r) {
     let numOfCirclesInPaint = document.getElementById("image-coordinates").getElementsByTagName("circle").length - 1;
 
     if (numOflinesInTable != code || numOfCirclesInPaint != code) {
-        code = 0;
-    } else {
-        code = numOflinesInTable;
+        start();
+        console.warn("Call start because of wrong number of strs");
     }
+
     console.log("X: " + x + " Y: " + y + " R: " + r);
+
     // eslint-disable-next-line no-undef
     $.ajax({
-        url: '/Lab4/faces/checkShot',
-        headers: {
-            "rows": code
-        },
-        method: 'POST',
+        url: '/Lab4/rest/faces/checkShot',
+        method: 'PUT',
         dataType: 'text',
         data: {coord_x: x, coord_y: y, coord_r: r},
         success: function (data, textStatus, request) {
             console.log(data);
             console.log(request.getResponseHeader('rows'));
-
+            code = request.getResponseHeader('rows');
             saveToApp(data);
             writeTable();
             printPaint();
+        },
+        error: function () {
+            console.error("Send error");
         }
     });
 }
 
 function saveToApp(data) {
-    if (code !== 0 && code !== -1) {
+    if (code !== 0) {
         tableOfShots.push(data.slice(0, data.length - 1).split(" "));
     } else {
         let ar = data.slice(0, data.length - 1).split("\n");
@@ -166,13 +167,17 @@ function printPaint() {
 function exit() {
     // eslint-disable-next-line no-undef
     $.ajax({
-        url: '/Lab4/faces/exit',
-        method: 'POST',
+        url: '/Lab4/rest/faces/exit',
+        method: 'DELETE',
         dataType: 'text',
         // eslint-disable-next-line no-unused-vars
         success: function (data) {
             tableOfShots = new Array();
             localStorage.removeItem("jwt");
+            router.push('/Lab4/login');
+        },
+        error: function () {
+            console.error("Exit error");
             router.push('/Lab4/login');
         }
     });
@@ -182,11 +187,11 @@ function clear(){
     console.log("Start clearing")
     // eslint-disable-next-line no-undef
     $.ajax({
-        url: '/Lab4/faces/checkShot',
+        url: '/Lab4/rest/faces/checkShot',
         headers: {
             "rows": -2
         },
-        method: 'POST',
+        method: 'DELETE',
         dataType: 'text',
         // eslint-disable-next-line no-unused-vars
         success: function (data, textStatus, request) {
@@ -194,7 +199,10 @@ function clear(){
             code = 0;
             writeTable();
             printPaint();
-            console.log("clearing success")
+            console.log("success clearing")
+        },
+        error: function () {
+            console.error("Clear error");
         }
     });
 }
@@ -204,18 +212,22 @@ function start(){
     updateClock();
     // eslint-disable-next-line no-undef
     $.ajax({
-        url: '/Lab4/faces/checkShot',
-        headers: {
-            "rows": -1
-        },
-        method: 'POST',
+        url: '/Lab4/rest/faces/checkShot',
+        method: 'GET',
         dataType: 'text',
         success: function (data, textStatus, request) {
             if (request.getResponseHeader('rows') > 0) {
+                code = 0;
+
                 saveToApp(data);
+
+                code = request.getResponseHeader('rows');
                 writeTable();
                 printPaint();
             }
+        },
+        error: function () {
+            console.error("Start error");
         }
     });
 }

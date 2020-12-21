@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../vue_test/dist/dist.iml" filepath="$PROJECT_DIR$/../vue_test/dist/dist.iml" />
       <module fileurl="file://$PROJECT_DIR$/vue-parts/vue-parts.iml" filepath="$PROJECT_DIR$/vue-parts/vue-parts.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/web-lab-4.iml" filepath="$PROJECT_DIR$/.idea/web-lab-4.iml" />
     </modules>

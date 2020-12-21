@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@WebServlet("/faces/checkShot")
+//@WebServlet("/faces/checkShot")
 public class AreaCheckServlet extends HttpServlet {
 
     private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CheckUserServlet.class);
