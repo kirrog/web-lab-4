@@ -102,7 +102,8 @@ function send(x, y, r) {
 
 function saveToApp(data) {
     if (code !== 0) {
-        tableOfShots.push(data.slice(0, data.length - 1).split(" "));
+        //tableOfShots.push(data.slice(0, data.length - 1).split(" "));
+        tableOfShots.unshift(data.slice(0, data.length - 1).split(" "));
     } else {
         let ar = data.slice(0, data.length - 1).split("\n");
         tableOfShots = new Array();
