@@ -79,6 +79,11 @@
             greet: function () {
                 let btn = document.getElementById("register-btn");
                 btn.setAttribute("disabled", "true");
+
+                let inner = btn.innerHTML;
+                btn.innerHTML = "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n" +
+                    "  Loading...";
+
                 if (this.pass === this.passR && this.login !== "") {
                     console.log("-----");
                     document.getElementById("email-text").classList.replace("is-invalid", "is-valid");
@@ -86,25 +91,23 @@
                     document.getElementById("password-r-text").classList.replace("is-invalid", "is-valid");
                     console.log("Right password repeating");
                     sendDataRegistration(this.login, this.pass);
-                    btn.removeAttribute("disabled");
+
                 } else if(this.pass !== this.passR){
                     document.getElementById("password-text").classList.replace("is-valid", "is-invalid");
                     document.getElementById("password-r-text").classList.replace("is-valid", "is-invalid");
                     document.getElementById("register-status").innerText = "Wrong password repeating";
                     document.getElementById("alert").setAttribute("class", "alert alert-warning alert-dismissible fade show");
                     console.log("Wrong password repeating");
-                    let btn = document.getElementById("register-btn");
-                    //btn.setAttribute("enabled", "true");
-                    btn.removeAttribute("disabled");
                 }else {
                     document.getElementById("email-text").classList.replace("is-valid", "is-invalid");
                     document.getElementById("register-status").innerText = "Login can't be null";
                     document.getElementById("alert").setAttribute("class", "alert alert-warning alert-dismissible fade show");
                     console.log("Login can't be null");
 
-                    let btn = document.getElementById("register-btn");
-                    btn.removeAttribute("disabled");
                 }
+                btn.removeAttribute("disabled");
+
+                btn.innerHTML = inner;
             }
         }
 

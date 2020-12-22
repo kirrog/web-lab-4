@@ -15,8 +15,8 @@ function sendDatas(email, password) {
                 document.getElementById("alert").setAttribute("class","alert alert-success alert-dismissible fade show");
                 console.log("CompleteDatas")
                 document.getElementById("login-status").innerText = "Success";
-                localStorage.setItem("jwt", true);
-                router.push('/Lab4/faces/app');
+                sessionStorage.setItem("jwt", true);
+                router.push('/Lab4/app');
             } else if (state == 1) {
                 document.getElementById("email-text").classList.replace("is-valid", "is-invalid");
                 document.getElementById("password-text").classList.replace("is-valid", "is-invalid");

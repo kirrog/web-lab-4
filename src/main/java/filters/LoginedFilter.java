@@ -1,7 +1,6 @@
 package filters;
 
 import resources.UserManager;
-import servlets.CheckUserServlet;
 
 import javax.ejb.EJB;
 import javax.servlet.*;

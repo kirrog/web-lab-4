@@ -21,11 +21,11 @@ export default new VueRouter({
             component: RegistrationApp
         },
         {
-            path: "/Lab4/faces/app",
+            path: "/Lab4/app",
             name: "app-page",
             component: MainApp,
             beforeEnter: (to, from, next) => {
-                if (localStorage.getItem("jwt")) next();
+                if (sessionStorage.getItem("jwt")) next();
                 else next({
                     name: "error-page",
                     params: {
@@ -39,7 +39,7 @@ export default new VueRouter({
             path: "/Lab4/",
             name: "default-page",
             beforeEnter: (to, from, next) => {
-                (localStorage.getItem("jwt") !== null) ? next({name: "app-page"}) : next({path: "/Lab4/login"});
+                (sessionStorage.getItem("jwt") !== null) ? next({name: "app-page"}) : next({name: "auth-page"});
             }
         },
         {

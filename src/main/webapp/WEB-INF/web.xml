@@ -15,12 +15,17 @@
 
     <filter-mapping>
         <filter-name>EnterFilter</filter-name>
-        <url-pattern>/faces/*</url-pattern>
+        <url-pattern>/app</url-pattern>
     </filter-mapping>
 
     <filter-mapping>
         <filter-name>EnterFilter</filter-name>
         <url-pattern>/rest/faces/*</url-pattern>
     </filter-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/</location>
+    </error-page>
 
 </web-app>

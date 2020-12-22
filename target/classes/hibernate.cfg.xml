@@ -6,7 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orbis</property>
         <property name="hibernate.connection.username">s283904</property>
         <property name="hibernate.connection.password">ipe789</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle8iDialect</property>

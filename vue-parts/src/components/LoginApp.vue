@@ -75,10 +75,16 @@
             greet: function () {
                 let btn = document.getElementById("login-btn");
                 btn.setAttribute("disabled", "true");
+
+                let inner = btn.innerHTML;
+                btn.innerHTML = "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n" +
+                    "  Loading...";
+
                 sendDatas(this.login, this.pass);
-                btn = document.getElementById("login-btn");
+
                 btn.removeAttribute("disabled");
 
+                btn.innerHTML = inner;
             }
         }
 

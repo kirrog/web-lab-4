@@ -133,7 +133,7 @@
                                        value="2" v-model="coord_r" v-on:click="setR(2)" id="r2">
                                 <label class="form-check-label" for="r2">2</label>
                                 <input class="form-check-input rCheckbox" type="checkbox" name="coordR"
-                                       value="3" v-model="coord_r" v-on:onclick="setR(3)" id="r3">
+                                       value="3" v-model="coord_r" v-on:click="setR(3)" id="r3">
                                 <label class="form-check-label" for="r3">3</label>
                                 <input class="form-check-input rCheckbox" type="checkbox" name="coordR"
                                        value="4" v-model="coord_r" v-on:click="setR(4)" id="r4">
@@ -145,14 +145,16 @@
                         </div>
 
                         <div id="sender">
-                            <input type="button" id="send-btn" class="btn btn-block btn-dark" value="Send" v-on:click="sdc"/>
+                            <input type="button" id="send-btn" class="btn btn-block btn-dark" value="Send"
+                                   v-on:click="sdc"/>
                         </div>
 
 
                     </div>
 
                     <div id="centerSide">
-                        <input type="button" id="clear-btn" value="Clear" class="btn btn-block btn-light" v-on:click="clearAll"/>
+                        <input type="button" id="clear-btn" value="Clear" class="btn btn-block btn-light"
+                               v-on:click="clearAll"/>
                     </div>
                 </div>
             </div>
@@ -194,8 +196,8 @@
 <script>
 
     import {clear} from "../scripts/main.js";
-    import {send} from "../scripts/main.js";
     import {setR} from "../scripts/main.js";
+    import {send} from "../scripts/main.js";
     import {start} from "../scripts/main.js";
     import {exit} from "../scripts/main.js";
 
@@ -208,7 +210,7 @@
                 coord_y: ""
             }
         },
-        mounted(){
+        mounted() {
             var inputs = document.getElementsByName("coordX");
             for (var i = 0; i < inputs.length; i++) inputs[i].onchange = checkboxHandler;
             var inputs2 = document.getElementsByName("coordR");
@@ -223,39 +225,63 @@
                 for (var i2 = 0; i2 < inputs2.length; i2++)
                     if (inputs2[i2].checked && inputs2[i2] !== this) inputs2[i2].checked = false;
             }
+
             start();
         },
         methods: {
-            sdc: () => {
+            sdc: function () {
                 let btn = document.getElementById("send-btn");
                 btn.setAttribute("disabled", "true");
-                send(parseFloat(this.data().coord_x[0]), parseFloat(this.data().coord_y), parseFloat(this.data().coord_r[0]))
-                btn = document.getElementById("send-btn");
+
+                let inner = btn.innerHTML;
+                btn.innerHTML = "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n" +
+                    "  Loading...";
+
+                let x = this.coord_x[0];
+                let y = this.coord_y;
+                let r = this.coord_r[0];
+
+                send(parseFloat(x), parseFloat(y), parseFloat(r));
+
                 btn.removeAttribute("disabled");
+
+                btn.innerHTML = inner;
             },
             setR: (number) => {
                 let btns = document.getElementsByClassName("rCheckbox");
-                for(let btn in btns){
-                    btn.setAttribute("disabled", "true");
-                }
+                for (let i = 0; i < btns.length; i++) btns[i].setAttribute("disabled", "true");
+
                 setR(number);
-                for(let btn in btns){
-                    btn.removeAttribute("disabled");
-                }
+
+                for (let i = 0; i < btns.length; i++) btns[i].removeAttribute("disabled");
             },
             clearAll: function () {
                 let btn = document.getElementById("clear-btn");
                 btn.setAttribute("disabled", "true");
+
+                let inner = btn.innerHTML;
+                btn.innerHTML = "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n" +
+                    "  Loading...";
+
                 clear();
-                btn = document.getElementById("clear-btn");
+
                 btn.removeAttribute("disabled");
+
+                btn.innerHTML = inner;
             },
-            exit: ()=>{
+            exit: () => {
                 let btn = document.getElementById("exit-btn");
                 btn.setAttribute("disabled", "true");
+
+                let inner = btn.innerHTML;
+                btn.innerHTML = "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n" +
+                    "  Loading...";
+
                 exit();
-                btn = document.getElementById("exit-btn");
+
                 btn.removeAttribute("disabled");
+
+                btn.innerHTML = inner;
             }
         }
     }

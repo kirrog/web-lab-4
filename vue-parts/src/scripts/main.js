@@ -2,6 +2,8 @@ let rGlNum = 1;
 let code = 0;
 let tableOfShots = new Array();
 
+let xNG = -3;
+
 import router from "@/router";
 // window.alert = function () {
 // };
@@ -13,13 +15,17 @@ function updateClock() {
     let date = [now.getDate(),
         now.getMonth() + 1,
         now.getFullYear()].join('.');
-    document.getElementById('time').innerHTML = [time, date].join(' | ');
+    document.getElementById('time').innerHTML = [date, time].join(' | ');
     setTimeout(updateClock, 1000);
 }
 
 function setR(newR) {
     rGlNum = newR;
     printPaint();
+}
+
+function setX(newX) {
+    xNG = newX;
 }
 
 const clickAnswer = function (event) {
@@ -58,6 +64,10 @@ const clickAnswer = function (event) {
 
     send(x, y, r);
 };
+
+function sendForm(y){
+    send(xNG, y, rGlNum);
+}
 
 function send(x, y, r) {
     let numOflinesInTable = document.getElementById("tableBody").getElementsByTagName("tr").length;
@@ -173,7 +183,7 @@ function exit() {
         // eslint-disable-next-line no-unused-vars
         success: function (data) {
             tableOfShots = new Array();
-            localStorage.removeItem("jwt");
+            sessionStorage.removeItem("jwt");
             router.push('/Lab4/login');
         },
         error: function () {
@@ -234,4 +244,4 @@ function start(){
 
 
 
-export {clear, exit, send, setR, start};
+export {clear, exit, send, setR, setX, start, sendForm};

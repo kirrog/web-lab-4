@@ -2,9 +2,6 @@
 
     <div>
         <h1 class="display-1">Error {{errorCode}}</h1>
-        <h1>
-            <center>User didn't login</center>
-        </h1>
         <p class="lead"/>
         <center>{{errorMessage}}</center>
         <router-link to="/Lab4/login" class="btn btn-lg btn-block btn-dark" >Return to login</router-link>
