@@ -160,17 +160,19 @@ function printPaint() {
         "                          stroke=\"rgb(0,0,0)\"></polyline>";
 
     for (let i = 0; i < tableOfShots.length; i++) {
-        inHTML += "<circle cx=\"" +
-            (150 + 120 * (parseFloat(tableOfShots[i][0]) / rGlNum)) +
-            "\" cy=\"" +
-            (150 - 120 * (parseFloat(tableOfShots[i][1]) / rGlNum)) +
-            "\" r=\"5\" ";
-        if ("true".localeCompare(tableOfShots[i][3])) {
-            inHTML += "fill=\"rgb(255,0,0)\" ";
-        } else {
-            inHTML += "fill=\"rgb(0,255,0)\" ";
+        if(parseFloat(tableOfShots[i][2]) === parseFloat(rGlNum)){
+            inHTML += "<circle cx=\"" +
+                (150 + 120 * (parseFloat(tableOfShots[i][0]) / rGlNum)) +
+                "\" cy=\"" +
+                (150 - 120 * (parseFloat(tableOfShots[i][1]) / rGlNum)) +
+                "\" r=\"5\" ";
+            if ("true".localeCompare(tableOfShots[i][3])) {
+                inHTML += "fill=\"rgb(255,0,0)\" ";
+            } else {
+                inHTML += "fill=\"rgb(0,255,0)\" ";
+            }
+            inHTML += "stroke-width=\"1\"\n stroke=\"rgb(0,0,0)\"/>";
         }
-        inHTML += "stroke-width=\"1\"\n stroke=\"rgb(0,0,0)\"/>";
     }
     document.getElementById("image-coordinates").innerHTML = inHTML;
 }

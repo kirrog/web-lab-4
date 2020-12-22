@@ -5,7 +5,7 @@
                 <div class="bg-dark p-4">
                     <center>
                         <h5 class="text-white h4">
-                            <img src="../assets/logo.jpg" width="30px" height="30px" alt="logo"/>
+                            <img src="../assets/logo.jpg" width="20px" height="20px" alt="logo"/>
                             Negrash Andrey and Rogachev Kirill presents
                         </h5>
                         <span class="text-muted"><div id="time"></div></span>

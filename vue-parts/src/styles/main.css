@@ -167,11 +167,6 @@ body {
     width: 20%;
 }
 
-.page-table-T {
-    width: 400px;
-    /*height: 300px;*/
-    border-spacing: 2px;
-}
 
 /*Скроллбар псевдоэлементом
 Вынесен справа, чтобы не мешал внутри блока своей шириной*/
@@ -213,7 +208,7 @@ body {
 
 #table {
     height: 400px;
-    min-width: 454px;
+    min-width: 350px;
     overflow: auto;
 }
 
@@ -231,7 +226,7 @@ body {
 }
 
 table {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 th {
@@ -289,14 +284,13 @@ input.error {
     }
 }
 
-@media (min-device-width: 0px) and (max-device-width: 791px) {
+@media (min-device-width: 500px) and (max-device-width: 791px) {
     #header {
-        min-width: 0;
         width: 100%;
     }
 
     #content{
-        width: 80%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -309,5 +303,31 @@ input.error {
     #table {
         width: 100%;
         min-width: 400px;
+    }
+}
+
+
+@media (min-device-width: 0px) and (max-device-width: 499px) {
+    #header {
+        width: 100%;
+    }
+
+    #content{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #image-coordinates{
+        min-width: 200px;
+    }
+
+    #enterPart {
+        width: 100%;
+        min-width: 235px;
+    }
+
+    #table {
+        width: 100%;
+        min-width: 235px;
     }
 }

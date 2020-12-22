@@ -9,6 +9,7 @@ import resources.UserManager;
 import utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class UserDao {
@@ -73,12 +74,12 @@ public class UserDao {
         }
     }
 
-    public List<User> findAllUsers() {
+    public CopyOnWriteArrayList<User> findAllUsers() {
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
             Transaction tx1 = session.beginTransaction();
             List<User> users = session.createQuery("FROM User", User.class).list();
             tx1.commit();
-            return users;
+            return new CopyOnWriteArrayList<User>(users);
         }
     }
 
